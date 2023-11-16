@@ -1,4 +1,5 @@
 {
-    "42header.email": "msumon@student.42vienna.com",
-    "42header.username": "msumon"
+    "files.associations": {
+        "stdio.h": "c"
+    }
 }

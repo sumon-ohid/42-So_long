@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 17:57:24 by sumon             #+#    #+#             */
-/*   Updated: 2023/11/16 21:55:41 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/16 23:14:21 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ char	*ft_strjoin_gnl(char *s1, char *s2)
 	size_t	i;
 	size_t	j;
 
-	str = (char *)malloc(sizeof(char) * (ft_strlen_gnl(s1) + ft_strlen_gnl(s2) + 1));
+	str = (char *)malloc(sizeof(char)
+			* (ft_strlen_gnl(s1) + ft_strlen_gnl(s2) + 1));
 	if (!(str))
 		return (NULL);
 	i = 0;
@@ -93,34 +94,3 @@ char	*get_next_line(int fd)
 	}
 	return (line);
 }
-
-// int	main(void)
-// {
-// 	int		fd;
-// 	char	*line;
-// 	int		i;
-	
-// 	i = 0;
-// 	fd = open("test.txt", O_RDONLY);
-// 	if (fd < 0)
-// 		printf("Error\n");
-// 	while (i++ < 15)
-// 	{
-// 		line = get_next_line(fd);
-// 		printf("%s", line);
-// 		free(line);
-// 	}
-// 	close(fd);
-// 	return (0);
-// }
-
-//testing Other functions from libft
-
-// int main()
-// {
-//     ft_printf("This is testing ft_printf function.\n");
-//     char    str[]   = "12345";
-//     int     res     = ft_atoi(str);
-//     ft_printf("This is testing ft_atoi from libft : %d\n", res);
-//     return (0);
-// }
