@@ -6,68 +6,62 @@
 #    By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/16 20:34:16 by sumon             #+#    #+#              #
-#    Updated: 2023/11/16 23:12:14 by msumon           ###   ########.fr        #
+#    Updated: 2023/11/17 15:16:12 by msumon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = cc
-CFLAGS = -Wall -Werror -Wextra
-NAME = so_long
-LIBFT = ./libft/
-GNL = ./get_next_line/
-FTPRINTF = ./ft_printf/
-MLX = ./mlx/
-HEADERS = -I libft -I get_next_line -I ft_printf -I mlx
-SRCDIR = ./srcs/
-SRCS = $(wildcard $(SRCDIR)*.c)
-OBJS = $(SRCS:.c=.o)
-LIBS = -L$(MLX) -lmlx -L$(LIBFT) -lft -L$(GNL) -lgnl -L$(FTPRINTF) -lftprintf
+OBJS 		= so_long.c ./srcs/wall.c ./srcs/load_map.c
+CC			= cc
+CFLAGS		= -g -Wall -Werror -Wextra -lmlx -lX11 -lXext -lm
+NAME		= so_long
+LIBFT		= ./libft/
+GNL			= ./get_next_line/
+FTPRINTF	= ./ft_printf/
 
 # Color codes
-GREEN = \033[0;32m
-BLUE = \033[0;34m
-PURPLE = \033[0;35m
-NC = \033[0m
+GREEN		= $(shell tput -Txterm setaf 2)
+BLUE		= $(shell tput -Txterm setaf 4)
+PURPLE		= $(shell tput -Txterm setaf 5)
 
-all: libft gnl ftprintf mlx compile
 
 libft:
-    @echo ${Q}${NL}${GREEN}======== libft ========${NC}${Q}
-    @$(MAKE) -C $(LIBFT)
+	@echo ${Q}${NL}${GREEN}======== libft ========${NC}${Q}
+	@$(MAKE) -C $(LIBFT) all
 
 gnl:
-    @echo ${Q}${NL}${GREEN}======== get_next_line ========${NC}${Q}
-    @$(MAKE) -C $(GNL)
+	@echo ${Q}${NL}${GREEN}======== get_next_line ========${NC}${Q}
+	@$(MAKE) -C $(GNL) all
 
 ftprintf:
-    @echo ${Q}${NL}${GREEN}======== ft_printf ========${NC}${Q}
-    @$(MAKE) -C $(FTPRINTF)
+	@echo ${Q}${NL}${GREEN}======== ft_printf ========${NC}${Q}
+	@$(MAKE) -C $(FTPRINTF) all
 
-mlx:
-    @echo ${Q}${NL}${GREEN}======== MiniLibX ========${NC}${Q}
-    @$(MAKE) -C $(MLX)
+all: libft gnl ftprintf compile
 
-compile: $(OBJS)
-    @echo ${Q}${NL}${PURPLE}======== So_long compiling! ========${NC}${Q}
-    $(CC) $(CFLAGS) -g $(HEADERS) $(OBJS) $(LIBS) -o $(NAME)
+%.o : %.c
+	@$(CC) $(CFLAGS) -c $< -o $@
 
-%.o: %.c
-    @$(CC) $(CFLAGS) -c $< -o $@
+
+$(NAME): libft gnl ftprintf
+	@echo ${Q}${NL}${GREEN}======== All Together Compiled! ========${NC}${Q}
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT)libft.a $(GNL)gnl.a $(FTPRINTF)libftprintf.a -o $(NAME)
+
+compile: $(NAME)
 
 clean:
-    @rm -rf $(OBJS)
-    @$(MAKE) -C $(LIBFT) clean
-    @$(MAKE) -C $(FTPRINTF) clean
-    @$(MAKE) -C $(GNL) clean
-    @$(MAKE) -C $(MLX) clean
-
+	@$(MAKE) -C $(LIBFT) clean
+	@$(MAKE) -C $(FTPRINTF) clean
+	@$(MAKE) -C $(GNL) clean
+	@rm -f $(NAME)
+	@echo ${Q}${NC}${BLUE}======== Cleaned! ========${NC}${Q}
+		
 fclean: clean
-    @rm -rf $(NAME)
-    @$(MAKE) -C $(LIBFT) fclean
-    @$(MAKE) -C $(FTPRINTF) fclean
-    @$(MAKE) -C $(GNL) fclean
-    @$(MAKE) -C $(MLX) fclean
-
+	@$(MAKE) -C $(LIBFT) fclean
+	@$(MAKE) -C $(FTPRINTF) fclean
+	@$(MAKE) -C $(GNL) fclean
+	@rm -f $(NAME)
+	@echo ${Q}${NC}${BLUE}======== Super Cleaned! ========${NC}${Q}
+	
 re: fclean all
 
-.PHONY: all libft ftprintf gnl mlx compile clean fclean re
+.PHONY: all libft gnl ftprintf compile clean fclean re
