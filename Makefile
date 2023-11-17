@@ -6,13 +6,13 @@
 #    By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/16 20:34:16 by sumon             #+#    #+#              #
-#    Updated: 2023/11/17 23:07:32 by msumon           ###   ########.fr        #
+#    Updated: 2023/11/17 23:27:45 by msumon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 OBJS 		= so_long.c ./srcs/elements.c ./srcs/load_map.c ./srcs/moves.c
 CC			= cc
-CFLAGS		= -g -Wall -Werror -Wextra -Lmlx -lmlx -framework OpenGL -framework AppKit
+CFLAGS		= -Wall -Werror -Wextra -Lmlx -lmlx -framework OpenGL -framework AppKit
 NAME		= so_long
 LIBFT		= ./libft/
 GNL			= ./get_next_line/
