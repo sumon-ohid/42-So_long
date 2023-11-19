@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   wall.c                                             :+:      :+:    :+:   */
+/*   elements.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 12:58:35 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/17 22:36:26 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/19 19:42:14 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ void	draw_elements(t_data *data, t_img *wall_img, t_img *coin_img, t_img *mario_
 				element(data, mario_img, x, y);
 			else if (map[y][x] == 'E')
 				element(data, exit_img, x, y);
+			else if (map[y][x] == '0')
+				element(data, &data->bg_img, x, y);
 			x++;
 		}
 		y++;

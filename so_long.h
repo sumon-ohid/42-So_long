@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 23:12:47 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/17 22:35:38 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/19 19:58:55 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ typedef struct s_data
     void    *mlx;
     void    *mlx_win;
     char    **map;
+    int     coins_collected;
+    int    moves;
     t_img   bg_img;
     t_img   wall_img;
     t_img   coin_img;
@@ -64,5 +66,6 @@ void    do_the_move(int keycode, t_data *data, t_img *wall_img, t_img *coin_img,
 void    get_current_position(char **map, int *x, int *y);
 t_img   load_image(void *mlx, char *file);
 int     key_hook(int keycode, t_data *data);
+void    quit_game(t_data *data);
 
 #endif
