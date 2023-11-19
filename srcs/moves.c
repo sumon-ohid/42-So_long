@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:56:21 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/19 20:13:00 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/19 21:46:25 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,20 +39,20 @@ void	get_current_position(char **map, int *x, int *y)
 // {
 // 	if (map[y - 1][x] != '1')
 // 	{
-// 		if (map[y - 1][x] == 'C') // If the next position contains a coin
+// 		if (map[y - 1][x] == 'C')
 // 		{
-// 			data->coins_collected++; // Increment the coins_collected counter
-// 			map[y - 1][x] = '0';     // Remove the coin from the map
+// 			data->coins_collected++;
+// 			map[y - 1][x] = '0';
 // 		}
-// 		else if (map[y - 1][x] == 'E') // If the next position is an exit
+// 		else if (map[y - 1][x] == 'E')
 // 		{
-// 			quit_game(data); // Quit the game and clean up resources
+// 			quit_game(data);
 // 			return ;
 // 		}
-// 		else if (map[y - 1][x] == 'M') // If the next position contains an enemy
+// 		else if (map[y - 1][x] == 'M')
 // 		{
-// 			// Handle collision with enemy
-// 			// This could involve losing a life, ending the game, etc.
+// 			// Handle enemy
+// 			// lose life, end the game.
 // 		}
 // 		map[y][x] = '0';
 // 		map[y - 1][x] = 'P';
@@ -61,7 +61,7 @@ void	get_current_position(char **map, int *x, int *y)
 // }
 
 void	do_the_move(int keycode, t_data *data, t_img *wall_img, t_img *coin_img,
-		t_img *mario_img, t_img *exit_img, char **map)
+		t_img *player_img, t_img *exit_img, char **map)
 {
 	int	x;
 	int	y;
@@ -124,7 +124,7 @@ void	do_the_move(int keycode, t_data *data, t_img *wall_img, t_img *coin_img,
 		}
 	}
 	ft_printf("Moves: %d\n", data->moves);
-	draw_elements(data, wall_img, coin_img, mario_img, exit_img, map);
+	draw_elements(data, wall_img, coin_img, player_img, exit_img, map);
 }
 
 void	quit_game(t_data *data)

@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 11:19:18 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/18 18:45:01 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/19 21:46:01 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int key_hook(int keycode, t_data *data)
     }
     else if (keycode == KEY_W || keycode == KEY_A || keycode == KEY_S || keycode == KEY_D)
     {
-        do_the_move(keycode, data, &data->wall_img, &data->coin_img, &data->mario_img, &data->exit_img, data->map);
+        do_the_move(keycode, data, &data->wall_img, &data->coin_img, &data->player_img, &data->exit_img, data->map);
     }
     return (0);
 }
@@ -54,13 +54,13 @@ int main(void)
     t_img wall_img;
     t_img bg_img;
     t_img coin_img;
-    t_img mario_img;
+    t_img player_img;
     t_img exit_img;
     t_data data;
     char *wall_path = "./files/wall.xpm";
     char *bg_path = "./files/bg.xpm";
     char *coin_path = "./files/coin.xpm";
-    char *mario_path = "./files/mushroom.xpm";
+    char *player_path = "./files/mushroom.xpm";
     char *exit_path = "./files/exit.xpm";
     char **map;
 
@@ -92,10 +92,10 @@ int main(void)
     wall_img = load_image(mlx, wall_path);
     bg_img = load_image(mlx, bg_path);
     coin_img = load_image(mlx, coin_path);
-    mario_img = load_image(mlx, mario_path);
+    player_img = load_image(mlx, player_path);
     exit_img = load_image(mlx, exit_path);
 
-    if (!wall_img.img || !bg_img.img || !coin_img.img || !mario_img.img || !exit_img.img)
+    if (!wall_img.img || !bg_img.img || !coin_img.img || !player_img.img || !exit_img.img)
     {
         ft_printf("Error loading textures\n");
         free_map(map);
@@ -105,11 +105,11 @@ int main(void)
     data.wall_img = wall_img;
     data.bg_img = bg_img;
     data.coin_img = coin_img;
-    data.mario_img = mario_img;
+    data.player_img = player_img;
     data.exit_img = exit_img;
 
     draw_background(&data, &bg_img);
-    draw_elements(&data, &wall_img, &coin_img, &mario_img, &exit_img, map);
+    draw_elements(&data, &wall_img, &coin_img, &player_img, &exit_img, map);
 
     //mlx_key_hook(mlx_win, key_hook, &data);
     mlx_hook(mlx_win, 2, 1L << 0, key_hook, &data);
