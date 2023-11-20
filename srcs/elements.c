@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 12:58:35 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/19 21:04:48 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/20 20:46:08 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 void	element(t_data *data, t_img *wall_img, int x, int y)
 {
-	mlx_put_image_to_window(data->mlx, data->mlx_win, wall_img->img, x * CELL_SIZE, y * CELL_SIZE);
+	mlx_put_image_to_window(data->mlx, data->mlx_win, wall_img->img, x
+		* CELL_SIZE, y * CELL_SIZE);
 }
 
-void	draw_elements(t_data *data, t_img *wall_img, t_img *coin_img, t_img *player_img, t_img *exit_img, char **map)
+void	draw_elements(t_data *data, t_img *wall_img, t_img *coin_img,
+		t_img *player_img, t_img *exit_img, char **map)
 {
 	int	x;
 	int	y;
@@ -46,18 +48,15 @@ void	draw_elements(t_data *data, t_img *wall_img, t_img *coin_img, t_img *player
 
 void	free_map(char **map)
 {
-    int i;
-    
-    if (!map)
-        return;
+	int	i;
 
-    i = 0;
-    while(map[i])
-    {
-        free(map[i]);
-        i++;
-    }
-    free(map);
+	if (!map)
+		return ;
+	i = 0;
+	while (map[i])
+	{
+		free(map[i]);
+		i++;
+	}
+	free(map);
 }
-
-

@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:56:21 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/19 21:46:25 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/20 21:10:54 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,30 +35,6 @@ void	get_current_position(char **map, int *x, int *y)
 	}
 }
 
-// void	ft_move(char map, )
-// {
-// 	if (map[y - 1][x] != '1')
-// 	{
-// 		if (map[y - 1][x] == 'C')
-// 		{
-// 			data->coins_collected++;
-// 			map[y - 1][x] = '0';
-// 		}
-// 		else if (map[y - 1][x] == 'E')
-// 		{
-// 			quit_game(data);
-// 			return ;
-// 		}
-// 		else if (map[y - 1][x] == 'M')
-// 		{
-// 			// Handle enemy
-// 			// lose life, end the game.
-// 		}
-// 		map[y][x] = '0';
-// 		map[y - 1][x] = 'P';
-// 		data->moves++;
-// 	}
-// }
 
 void	do_the_move(int keycode, t_data *data, t_img *wall_img, t_img *coin_img,
 		t_img *player_img, t_img *exit_img, char **map)
@@ -71,7 +47,7 @@ void	do_the_move(int keycode, t_data *data, t_img *wall_img, t_img *coin_img,
 	{
 		if (map[y - 1][x] != '1')
 		{
-            if (map[y - 1][x] == 'E')
+			if (map[y - 1][x] == 'E')
 			{
 				quit_game(data);
 				return ;
@@ -85,7 +61,7 @@ void	do_the_move(int keycode, t_data *data, t_img *wall_img, t_img *coin_img,
 	{
 		if (map[y][x - 1] != '1')
 		{
-            if (map[y][x - 1] == 'E')
+			if (map[y][x - 1] == 'E')
 			{
 				quit_game(data);
 				return ;
@@ -99,7 +75,7 @@ void	do_the_move(int keycode, t_data *data, t_img *wall_img, t_img *coin_img,
 	{
 		if (map[y + 1][x] != '1')
 		{
-            if (map[y + 1][x] == 'E')
+			if (map[y + 1][x] == 'E')
 			{
 				quit_game(data);
 				return ;
@@ -113,7 +89,7 @@ void	do_the_move(int keycode, t_data *data, t_img *wall_img, t_img *coin_img,
 	{
 		if (map[y][x + 1] != '1')
 		{
-            if (map[y][x + 1] == 'E')
+			if (map[y][x + 1] == 'E')
 			{
 				quit_game(data);
 				return ;
