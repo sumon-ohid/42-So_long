@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 23:12:47 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/21 18:04:47 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/21 18:30:32 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ typedef struct s_data
 
 void		draw_elements(t_data *data);
 char		**load_map(char *map_path);
-void		draw_background(t_data *data, t_img *bg_img);
 void		free_map(char **map);
 void		do_the_move(int keycode, t_data *data);
 void		get_current_position(char **map, int *x, int *y);

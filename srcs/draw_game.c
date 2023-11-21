@@ -6,20 +6,14 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 06:41:27 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/21 18:04:55 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/21 18:30:13 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	draw_background(t_data *data, t_img *bg_img)
-{
-	mlx_put_image_to_window(data->mlx, data->mlx_win, bg_img->img, 0, 0);
-}
-
 void	draw_game(t_data *data)
 {
-	draw_background(data, &data->bg_img);
 	draw_elements(data);
 	so_long_welcome();
 }
