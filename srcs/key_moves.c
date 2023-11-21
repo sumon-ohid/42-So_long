@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   moves.c                                            :+:      :+:    :+:   */
+/*   key_moves.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:56:21 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/21 07:28:54 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/21 10:35:58 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,6 @@ int ft_strlen_sl(char *str)
 {
 	int i = 0;
 	while (str[i])
-		i++;
-	return (i);
-}
-
-int height_count(char **map)
-{
-	int i = 0;
-	while (map[i])
 		i++;
 	return (i);
 }
@@ -54,17 +46,52 @@ void	get_current_position(char **map, int *x, int *y)
 		i++;
 	}
 }
+int count_coins(char **map)
+{
+    int i;
+    int j;
+    int coins;
+
+    i = 0;
+    coins = 0;
+    while (map[i])
+    {
+        j = 0;
+        while (map[i][j])
+        {
+            if (map[i][j] == 'C')
+                coins++;
+            j++;
+        }
+        i++;
+    }
+    return (coins);
+}
+
 void move_player(int new_x, int new_y, char **map, t_data *data)
 {
+    int total_coins;
+    int coins_collected;
+    int current_x;
+    int current_y;
+    
+    coins_collected = 0;
+    get_current_position(map, &current_x, &current_y);
+    total_coins = count_coins(map);
     if (map[new_y][new_x] != '1')
     {
-        if (map[new_y][new_x] == 'E' && data->coins_collected == data->coins)
+        if (map[new_y][new_x] == 'E')
         {
-            quit_game(data);
-            return;
+            if (coins_collected == total_coins)
+            {
+                quit_game(data);
+                return;
+            }
+            else
+                return;
         }
-        int current_x, current_y;
-        get_current_position(map, &current_x, &current_y);
+        if (map[new_y][new_x] == 'C')
+            coins_collected++;
         map[current_y][current_x] = '0';
         map[new_y][new_x] = 'P';
         data->moves++;
@@ -72,7 +99,7 @@ void move_player(int new_x, int new_y, char **map, t_data *data)
 }
 
 void do_the_move(int keycode, t_data *data, t_img *wall_img, t_img *coin_img,
-                 t_img *player_img, t_img *exit_img, char **map)
+                t_img *player_img, t_img *exit_img, char **map)
 {
     int x, y;
     get_current_position(map, &x, &y);

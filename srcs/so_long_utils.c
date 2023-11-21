@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 06:40:10 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/21 06:52:00 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/21 09:08:08 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,11 @@ void	print_error_and_exit(const char *error_message)
 {
 	ft_printf("Error: %s\n", error_message);
 	exit(EXIT_FAILURE);
+}
+int height_count(char **map)
+{
+	int i = 0;
+	while (map[i])
+		i++;
+	return (i);
 }
