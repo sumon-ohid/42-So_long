@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 06:41:27 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/21 14:47:44 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/21 18:04:55 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,7 @@ t_img	load_image(void *mlx, char *file)
 	img.img = mlx_xpm_file_to_image(mlx, file, &img.width, &img.height);
 	if (img.img == NULL)
 	{
-		ft_putstr_fd("Error loading image\n", 2);
-		exit(EXIT_FAILURE);
+		print_error_and_exit("Error loading texture");
 	}
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
 			&img.endian);

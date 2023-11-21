@@ -6,27 +6,44 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 15:11:49 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/21 14:47:23 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/21 18:04:36 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-char	**load_map(char *str)
+int map_height(char *str)
+{
+	int		fd;
+	int		height;
+
+	height = 0;
+	fd = open(str, O_RDONLY);
+	if (fd < 0)
+		print_error_and_exit("Error opening map.");
+	while (get_next_line(fd))
+		height++;
+	close(fd);
+	return (height);
+}
+
+char	**load_map(char *map_path)
 {
 	char	**map;
 	char	*line;
 	int		fd;
 	int		i;
-
+	int		height;
+	
+	height = map_height(map_path);
 	i = 0;
-	fd = open(str, O_RDONLY);
+	fd = open(map_path, O_RDONLY);
 	if (fd < 0)
 		print_error_and_exit("Error opening map.");
-	map = (char **)malloc(sizeof(char *) * (MAP_HEIGHT + 1));
+	map = (char **)malloc(sizeof(char *) * (height + 1));
 	if (!map)
 		print_error_and_exit("Error allocating memory for map");
-	while (i < MAP_HEIGHT && (line != NULL))
+	while (i < height && (line != NULL))
 	{
 		line = get_next_line(fd);
 		map[i++] = line;
