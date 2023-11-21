@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 11:19:18 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/21 12:29:20 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/21 12:53:17 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ int	key_hook(int keycode, t_data *data)
 	else if (keycode == KEY_W || keycode == KEY_A || keycode == KEY_S
 		|| keycode == KEY_D)
 	{
-		do_the_move(keycode, data, &data->wall_img, &data->coin_img,
-			&data->player_img, &data->exit_img, data->map);
+		do_the_move(keycode, data);
 	}
 	return (0);
 }

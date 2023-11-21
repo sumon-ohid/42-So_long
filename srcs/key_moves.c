@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:56:21 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/21 12:41:47 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/21 12:50:11 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,30 +98,29 @@ void move_player(int new_x, int new_y, char **map, t_data *data)
     }
 }
 
-void do_the_move(int keycode, t_data *data, t_img *wall_img, t_img *coin_img,
-                t_img *player_img, t_img *exit_img, char **map)
+void do_the_move(int keycode, t_data *data)
 {
     int x, y;
-    get_current_position(map, &x, &y);
+    get_current_position(data->map, &x, &y);
 
     if (keycode == KEY_W)
     {
-        move_player(x, y - 1, map, data);
+        move_player(x, y - 1, data->map, data);
     }
     else if (keycode == KEY_A)
     {
-        move_player(x - 1, y, map, data);
+        move_player(x - 1, y, data->map, data);
     }
     else if (keycode == KEY_S)
     {
-        move_player(x, y + 1, map, data);
+        move_player(x, y + 1, data->map, data);
     }
     else if (keycode == KEY_D)
     {
-        move_player(x + 1, y, map, data);
+        move_player(x + 1, y, data->map, data);
     }
     ft_printf("Moves: %d\n", data->moves);
-    draw_elements(data, wall_img, coin_img, player_img, exit_img, map);
+    draw_elements(data);
 }
 
 void	quit_game(t_data *data)

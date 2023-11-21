@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 23:12:47 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/21 12:21:27 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/21 12:52:59 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,14 +65,11 @@ typedef struct s_data
 	t_img	exit_img;
 }			t_data;
 
-void		draw_elements(t_data *data, t_img *wall_img, t_img *coin_img,
-				t_img *player_img, t_img *exit_img, char **map);
+void		draw_elements(t_data *data);
 char		**load_map(char *str);
 void		draw_background(t_data *data, t_img *bg_img);
 void		free_map(char **map);
-void		do_the_move(int keycode, t_data *data, t_img *wall_img,
-				t_img *coin_img, t_img *player_img, t_img *exit_img,
-				char **map);
+void 		do_the_move(int keycode, t_data *data);
 void		get_current_position(char **map, int *x, int *y);
 t_img		load_image(void *mlx, char *file);
 int			key_hook(int keycode, t_data *data);
