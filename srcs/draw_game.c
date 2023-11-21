@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 06:41:27 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/21 12:53:47 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/21 13:04:03 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	draw_game(t_data *data)
 {
 	draw_background(data, &data->bg_img);
 	draw_elements(data);
+	so_long_welcome();
 }
 
 void	load_resources(t_data *data, char *map_path)

@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 23:12:47 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/21 12:52:59 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/21 12:59:13 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,6 @@ void		set_event(t_data *data);
 void		load_resources(t_data *data, char *map_path);
 void		print_error_and_exit(const char *error_message);
 int 		height_count(char **map);
+void 		so_long_welcome(void);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:56:21 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/21 12:50:11 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/21 13:07:43 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,9 @@ void do_the_move(int keycode, t_data *data)
 
 void	quit_game(t_data *data)
 {
+    int moves;
+
+    moves = data->moves;
 	mlx_destroy_window(data->mlx, data->mlx_win);
 	ft_printf("\n");
     ft_printf("██╗   ██╗ ██████╗ ██╗   ██╗    ██╗    ██╗ ██████╗ ███╗   ██╗\n");
@@ -134,7 +137,7 @@ void	quit_game(t_data *data)
 	ft_printf("   ██║   ╚██████╔╝╚██████╔╝    ╚███╔███╔╝╚██████╔╝██║ ╚████║\n");
 	ft_printf("   ╚═╝    ╚═════╝  ╚═════╝      ╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═══╝\n");
 	ft_printf("\n");
-
+    ft_printf("                 You used %d moves.\n", moves);
     exit(0);
 }
 
