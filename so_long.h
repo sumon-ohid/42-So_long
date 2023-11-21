@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 23:12:47 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/21 06:57:04 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/21 07:18:57 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,7 @@ typedef struct s_data
 {
 	void	*mlx;
 	void	*mlx_win;
-    int		total_collectibles;
-    int     collected_collectibles;
+	int		coins;
 	int		coins_collected;
 	int		moves;
 	char	**map;
