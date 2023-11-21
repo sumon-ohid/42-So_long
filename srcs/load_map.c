@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 15:11:49 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/21 06:41:38 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/21 13:52:02 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,10 @@ char	**load_map(char *str)
 	i = 0;
 	fd = open(str, O_RDONLY);
 	if (fd < 0)
-	{
-		ft_printf("Error opening map file\n");
-		exit(EXIT_FAILURE);
-	}
+		print_error_and_exit("Error opening map.");
 	map = (char **)malloc(sizeof(char *) * (MAP_HEIGHT + 1));
 	if (!map)
-	{
-		ft_printf("Error allocating memory for map\n");
-		exit(EXIT_FAILURE);
-	}
+		print_error_and_exit("Error allocating memory for map");
 	while (i < MAP_HEIGHT && (line != NULL))
 	{
 		line = get_next_line(fd);

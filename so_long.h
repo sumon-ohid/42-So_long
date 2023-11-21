@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 23:12:47 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/21 12:59:13 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/21 13:49:23 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void		draw_elements(t_data *data);
 char		**load_map(char *str);
 void		draw_background(t_data *data, t_img *bg_img);
 void		free_map(char **map);
-void 		do_the_move(int keycode, t_data *data);
+void		do_the_move(int keycode, t_data *data);
 void		get_current_position(char **map, int *x, int *y);
 t_img		load_image(void *mlx, char *file);
 int			key_hook(int keycode, t_data *data);
@@ -78,7 +78,7 @@ void		draw_game(t_data *data);
 void		set_event(t_data *data);
 void		load_resources(t_data *data, char *map_path);
 void		print_error_and_exit(const char *error_message);
-int 		height_count(char **map);
-void 		so_long_welcome(void);
+int			height_count(char **map);
+void		so_long_welcome(void);
 
 #endif
