@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 23:12:47 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/20 21:04:44 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/21 06:57:04 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,10 @@ void		get_current_position(char **map, int *x, int *y);
 t_img		load_image(void *mlx, char *file);
 int			key_hook(int keycode, t_data *data);
 void		quit_game(t_data *data);
-
+void		draw_game(t_data *data);
+void		set_event(t_data *data);
+void		load_resources(t_data *data, char *map_path, char *wall_path,
+				char *bg_path, char *coin_path, char *player_path,
+				char *exit_path);
+void		print_error_and_exit(const char *error_message);
 #endif

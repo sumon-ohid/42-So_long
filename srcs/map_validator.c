@@ -6,14 +6,13 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 20:41:12 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/20 20:42:58 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/21 06:20:31 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	is_valid_map(char **map)
 {
-	if (!contains_exit(map) || !contains_collectible(map)
-		|| !contains_start(map))
+	if (!contains_exit(map) || !contains_collectible(map) || !contains_start(map))
 		return (0);
 	if (has_duplicate_characters(map))
 		return (0);

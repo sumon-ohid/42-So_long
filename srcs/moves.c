@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:56:21 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/20 21:10:54 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/21 07:00:27 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,70 +34,45 @@ void	get_current_position(char **map, int *x, int *y)
 		i++;
 	}
 }
-
+void	move_player(int new_x, int new_y, char **map, t_data *data)
+{
+	int current_x;
+	int current_y;
+	
+	if (map[new_y][new_x] != '1')
+	{
+		if (map[new_y][new_x] == 'E')
+		{
+			quit_game(data);
+			return ;
+		}
+		get_current_position(map, &current_x, &current_y);
+		map[current_y][current_x] = '0';
+		map[new_y][new_x] = 'P';
+		data->moves++;
+	}
+}
 
 void	do_the_move(int keycode, t_data *data, t_img *wall_img, t_img *coin_img,
 		t_img *player_img, t_img *exit_img, char **map)
 {
-	int	x;
-	int	y;
-
+	int x, y;
 	get_current_position(map, &x, &y);
 	if (keycode == KEY_W)
 	{
-		if (map[y - 1][x] != '1')
-		{
-			if (map[y - 1][x] == 'E')
-			{
-				quit_game(data);
-				return ;
-			}
-			map[y][x] = '0';
-			map[y - 1][x] = 'P';
-			data->moves++;
-		}
+		move_player(x, y - 1, map, data);
 	}
 	else if (keycode == KEY_A)
 	{
-		if (map[y][x - 1] != '1')
-		{
-			if (map[y][x - 1] == 'E')
-			{
-				quit_game(data);
-				return ;
-			}
-			map[y][x] = '0';
-			map[y][x - 1] = 'P';
-			data->moves++;
-		}
+		move_player(x - 1, y, map, data);
 	}
 	else if (keycode == KEY_S)
 	{
-		if (map[y + 1][x] != '1')
-		{
-			if (map[y + 1][x] == 'E')
-			{
-				quit_game(data);
-				return ;
-			}
-			map[y][x] = '0';
-			map[y + 1][x] = 'P';
-			data->moves++;
-		}
+		move_player(x, y + 1, map, data);
 	}
 	else if (keycode == KEY_D)
 	{
-		if (map[y][x + 1] != '1')
-		{
-			if (map[y][x + 1] == 'E')
-			{
-				quit_game(data);
-				return ;
-			}
-			map[y][x] = '0';
-			map[y][x + 1] = 'P';
-			data->moves++;
-		}
+		move_player(x + 1, y, map, data);
 	}
 	ft_printf("Moves: %d\n", data->moves);
 	draw_elements(data, wall_img, coin_img, player_img, exit_img, map);
