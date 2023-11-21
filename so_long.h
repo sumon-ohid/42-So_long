@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 23:12:47 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/21 18:30:32 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/21 19:33:04 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@
 
 # define WIN_WIDTH 1087
 # define WIN_HEIGHT 255
-# define MAP_HEIGHT 9
 # define CELL_SIZE 32
 # define KEY_W 13 //119
 # define KEY_A 0 //97
@@ -32,7 +31,6 @@
 # define KEY_D 2 //100
 # define KEY_ESC 53 // 65307
 # define COIN 5
-# define MAP_WIDTH 32
 
 typedef struct s_img
 {
@@ -79,5 +77,7 @@ void		load_resources(t_data *data, char *map_path);
 void		print_error_and_exit(const char *error_message);
 int			height_count(char **map);
 void		so_long_welcome(void);
+int			ft_strlen_sl(char *str);
+void		initialize_mlx(t_data *data);
 
 #endif

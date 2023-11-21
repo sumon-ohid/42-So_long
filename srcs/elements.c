@@ -6,16 +6,16 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 12:58:35 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/21 13:46:30 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/21 19:08:17 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	element(t_data *data, t_img *wall_img, int x, int y)
+void	element(t_data *data, t_img *img, int x, int y)
 {
-	mlx_put_image_to_window(data->mlx, data->mlx_win, wall_img->img, x
-		* CELL_SIZE, y * CELL_SIZE);
+	mlx_put_image_to_window(data->mlx, data->mlx_win, img->img, x * CELL_SIZE, y
+		* CELL_SIZE);
 }
 
 void	draw_elements(t_data *data)

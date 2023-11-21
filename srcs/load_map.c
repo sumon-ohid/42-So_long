@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 15:11:49 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/21 18:04:36 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/21 18:38:14 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ char	**load_map(char *map_path)
 	while (i < height && (line != NULL))
 	{
 		line = get_next_line(fd);
-		map[i++] = line;
+		map[i++] = ft_strdup(line);
 	}
 	close(fd);
 	if (line != NULL)

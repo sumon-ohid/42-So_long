@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 06:41:27 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/21 18:30:13 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/21 19:32:18 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,13 @@ void	load_resources(t_data *data, char *map_path)
 	{
 		print_error_and_exit("Failed to load textures");
 	}
+	initialize_mlx(data);
 }
 
 t_img	load_image(void *mlx, char *file)
 {
 	t_img	img;
-
+	
 	img.img = mlx_xpm_file_to_image(mlx, file, &img.width, &img.height);
 	if (img.img == NULL)
 	{
