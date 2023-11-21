@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 23:12:47 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/21 09:08:00 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/21 12:21:27 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,11 @@ typedef struct s_data
 	int		coins_collected;
 	int		moves;
 	char	**map;
+	char	*wall_path;
+	char	*bg_path;
+	char	*coin_path;
+	char	*player_path;
+	char	*exit_path;
 	t_img	bg_img;
 	t_img	wall_img;
 	t_img	coin_img;
@@ -74,9 +79,8 @@ int			key_hook(int keycode, t_data *data);
 void		quit_game(t_data *data);
 void		draw_game(t_data *data);
 void		set_event(t_data *data);
-void		load_resources(t_data *data, char *map_path, char *wall_path,
-				char *bg_path, char *coin_path, char *player_path,
-				char *exit_path);
+void		load_resources(t_data *data, char *map_path);
 void		print_error_and_exit(const char *error_message);
 int 		height_count(char **map);
+
 #endif

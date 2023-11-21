@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 06:41:27 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/21 06:52:05 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/21 12:24:20 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,18 @@ void	draw_game(t_data *data)
 		&data->exit_img, data->map);
 }
 
-void	load_resources(t_data *data, char *map_path, char *wall_path,
-		char *bg_path, char *coin_path, char *player_path, char *exit_path)
+void	load_resources(t_data *data, char *map_path)
 {
 	data->map = load_map(map_path);
 	if (!data->map)
 	{
 		print_error_and_exit("Invalid map");
 	}
-	data->wall_img = load_image(data->mlx, wall_path);
-	data->bg_img = load_image(data->mlx, bg_path);
-	data->coin_img = load_image(data->mlx, coin_path);
-	data->player_img = load_image(data->mlx, player_path);
-	data->exit_img = load_image(data->mlx, exit_path);
+	data->wall_img = load_image(data->mlx, data->wall_path);
+	data->bg_img = load_image(data->mlx, data->bg_path);
+	data->coin_img = load_image(data->mlx, data->coin_path);
+	data->player_img = load_image(data->mlx, data->player_path);
+	data->exit_img = load_image(data->mlx, data->exit_path);
 	if (!data->wall_img.img || !data->bg_img.img || !data->coin_img.img
 		|| !data->player_img.img || !data->exit_img.img)
 	{

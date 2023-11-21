@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 11:19:18 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/21 06:53:38 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/21 12:29:20 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,22 +47,17 @@ void	initialize_mlx(t_data *data)
 int	main(int argc, char **argv)
 {
 	t_data	data;
-	char	*wall_path;
-	char	*bg_path;
-	char	*coin_path;
-	char	*player_path;
-	char	*exit_path;
 
-	wall_path = "./files/wall.xpm";
-	bg_path = "./files/bg.xpm";
-	coin_path = "./files/coin.xpm";
-	player_path = "./files/mushroom.xpm";
-	exit_path = "./files/exit.xpm";
+	data.moves = 0;
+	data.wall_path = "./files/wall.xpm";
+	data.bg_path = "./files/bg.xpm";
+	data.coin_path = "./files/coin.xpm";
+	data.player_path = "./files/mushroom.xpm";
+	data.exit_path = "./files/exit.xpm";
 	if (argc != 2)
 		print_error_and_exit("Invalid Argument");
 	initialize_mlx(&data);
-	load_resources(&data, argv[1], wall_path, bg_path, coin_path, player_path,
-		exit_path);
+	load_resources(&data, argv[1]);
 	draw_game(&data);
 	set_event(&data);
 	return (0);

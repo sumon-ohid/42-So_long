@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:56:21 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/21 10:35:58 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/21 12:41:47 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,10 +124,19 @@ void do_the_move(int keycode, t_data *data, t_img *wall_img, t_img *coin_img,
     draw_elements(data, wall_img, coin_img, player_img, exit_img, map);
 }
 
-
 void	quit_game(t_data *data)
 {
 	mlx_destroy_window(data->mlx, data->mlx_win);
-	printf("You have reached the exit. Game finished.\n");
-	exit(0);
+	ft_printf("\n");
+    ft_printf("██╗   ██╗ ██████╗ ██╗   ██╗    ██╗    ██╗ ██████╗ ███╗   ██╗\n");
+    ft_printf("╚██╗ ██╔╝██╔═══██╗██║   ██║    ██║    ██║██╔═══██╗████╗  ██║\n");
+    ft_printf(" ╚████╔╝ ██║   ██║██║   ██║    ██║ █╗ ██║██║   ██║██╔██╗ ██║\n");
+	ft_printf("  ╚██╔╝  ██║   ██║██║   ██║    ██║███╗██║██║   ██║██║╚██╗██║\n");
+	ft_printf("   ██║   ╚██████╔╝╚██████╔╝    ╚███╔███╔╝╚██████╔╝██║ ╚████║\n");
+	ft_printf("   ╚═╝    ╚═════╝  ╚═════╝      ╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═══╝\n");
+	ft_printf("\n");
+
+    exit(0);
 }
+
+                                                            
