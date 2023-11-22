@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 15:11:49 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/21 18:38:14 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/22 08:37:19 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,27 @@ int map_height(char *str)
 		height++;
 	close(fd);
 	return (height);
+}
+int map_width(char *map_path)
+{
+    int fd;
+    int width;
+    char *line;
+
+    fd = open(map_path, O_RDONLY);
+    if (fd < 0)
+        print_error_and_exit("Error opening map.");
+
+    line = get_next_line(fd);
+    if (!line)
+    {
+        close(fd);
+        return (0);
+    }
+    width = ft_strlen_sl(line);
+    free(line);
+    close(fd);
+    return (width);
 }
 
 char	**load_map(char *map_path)

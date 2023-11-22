@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 06:41:27 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/21 19:32:18 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/22 08:34:13 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	draw_game(t_data *data)
 
 void	load_resources(t_data *data, char *map_path)
 {
+	data->map_path = map_path;
 	data->map = load_map(map_path);
 	if (!data->map)
 	{
