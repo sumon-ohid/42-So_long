@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 23:12:47 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/21 19:33:04 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/22 08:02:17 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,18 @@
 # include "libft/libft.h"
 # include <math.h>
 //# include <mlx.h>
-# include "./mlx_MacOS/mlx.h"
-//# include "./minilibx-linux/mlx.h"
+//# include "./mlx_MacOS/mlx.h"
+# include "./minilibx-linux/mlx.h"
 # include <stdio.h>
 
 # define WIN_WIDTH 1087
 # define WIN_HEIGHT 255
 # define CELL_SIZE 32
-# define KEY_W 13 //119
-# define KEY_A 0 //97
-# define KEY_S 1 //115
-# define KEY_D 2 //100
-# define KEY_ESC 53 // 65307
+# define KEY_W 119
+# define KEY_A 97
+# define KEY_S 115
+# define KEY_D 100
+# define KEY_ESC 65307
 # define COIN 5
 
 typedef struct s_img
