@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 11:19:18 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/21 19:35:31 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/22 08:15:45 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,21 @@ int	key_hook(int keycode, t_data *data)
 	else if (keycode == KEY_W || keycode == KEY_A || keycode == KEY_S
 		|| keycode == KEY_D)
 	{
+		ft_printf("%d\n", keycode);
 		do_the_move(keycode, data);
 	}
 	return (0);
+}
+
+int close_window(void *param)
+{
+    t_data *data = (t_data *)param;
+
+    mlx_destroy_window(data->mlx, data->mlx_win);
+    printf("Window closed. Exiting...\n");
+    exit(0);
+
+    return (0);
 }
 
 void	initialize_mlx(t_data *data)

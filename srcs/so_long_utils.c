@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 06:40:10 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/21 19:34:42 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/22 08:13:46 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	set_event(t_data *data)
 {
 	mlx_hook(data->mlx_win, 2, 1L << 0, key_hook, data);
-	mlx_hook(data->mlx_win, 17, 1L << 17, key_hook, data);
+	mlx_hook(data->mlx_win, 17, 1L << 17, close_window, data);
 	mlx_loop(data->mlx);
 	free_map(data->map);
 	mlx_destroy_window(data->mlx, data->mlx_win);
