@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 11:19:18 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/23 13:54:20 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/23 14:46:59 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void	initialize_mlx(t_data *data)
 
 	win_height = data->map_height * CELL_SIZE;
 	win_width = data->map_width * CELL_SIZE;
-	
 	data->mlx_win = mlx_new_window(data->mlx, win_width, win_height, "So_long");
 	if (!data->mlx_win)
 	{
@@ -63,13 +62,11 @@ int	main(int argc, char **argv)
 		print_error_and_exit("Invalid Argument");
 	data.mlx = mlx_init();
 	if (!data.mlx)
-	{
 		print_error_and_exit("Failed to initialize mlx");
-	}
 	data.moves = 0;
 	data.map_path = argv[1];
 	data.wall_path = "./files/wall.xpm";
-	data.bg_path = "./files/bg.xpm";
+	data.bg_path = "./files/bg1.xpm";
 	data.coin_path = "./files/coin.xpm";
 	data.player_path = "./files/mushroom.xpm";
 	data.exit_path = "./files/exit.xpm";
@@ -77,9 +74,7 @@ int	main(int argc, char **argv)
 	data.map_width = map_width(data.map_path);
 	data.map = load_map(data.map_path);
 	if (!(data.map))
-	{
 		print_error_and_exit("Invalid map");
-	}
 	if (is_valid_map(&data) == 1)
 	{
 		initialize_mlx(&data);
