@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 11:19:18 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/22 08:43:48 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/23 08:37:47 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,17 +42,21 @@ int close_window(void *param)
 
 void	initialize_mlx(t_data *data)
 {
-	// int win_height;
-	// int win_width;
+	int win_height;
+	int win_width;
 
-	// win_height = map_height(data->map_path) * CELL_SIZE;
-	// win_width  = map_width(data->map_path) * CELL_SIZE;
+	win_height = map_height(data->map_path) * CELL_SIZE;
+	win_width  = map_width(data->map_path) * CELL_SIZE;
+
+	ft_printf("%d\n", win_height);
+	ft_printf("%d\n", win_width);
+	
 	data->mlx = mlx_init();
 	if (!data->mlx)
 	{
 		print_error_and_exit("Failed to initialize mlx");
 	}
-	data->mlx_win = mlx_new_window(data->mlx, WIN_WIDTH, WIN_HEIGHT, "So_long");
+	data->mlx_win = mlx_new_window(data->mlx, win_width, win_height, "So_long");
 	if (!data->mlx_win)
 	{
 		print_error_and_exit("Failed to create window");
@@ -64,6 +68,7 @@ int	main(int argc, char **argv)
 	t_data	data;
 
 	data.moves = 0;
+	data.map_path = argv[1];
 	data.wall_path = "./files/wall.xpm";
 	data.bg_path = "./files/bg.xpm";
 	data.coin_path = "./files/coin.xpm";

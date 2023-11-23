@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 15:11:49 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/22 08:37:19 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/23 08:37:41 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int map_width(char *map_path)
         close(fd);
         return (0);
     }
-    width = ft_strlen_sl(line);
+    width = ft_strlen_sl(line) - 1;
     free(line);
     close(fd);
     return (width);
