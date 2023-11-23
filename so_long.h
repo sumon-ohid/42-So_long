@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 23:12:47 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/23 15:16:04 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/23 17:19:15 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,7 @@ int			close_window(void *param);
 int			map_height(char *str);
 int			map_width(char *map_path);
 int			is_valid_map(t_data *data);
+int			is_rectangular(t_data *data);
+int			has_wall_around(t_data *data);
 
 #endif
