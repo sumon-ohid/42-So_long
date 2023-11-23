@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 06:41:27 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/23 08:41:30 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/23 12:06:22 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,8 @@ void	draw_game(t_data *data)
 	so_long_welcome();
 }
 
-void	load_resources(t_data *data, char *map_path)
+void	load_resources(t_data *data)
 {
-	data->map_path = map_path;
-	data->map = load_map(map_path);
-	if (!data->map)
-	{
-		print_error_and_exit("Invalid map");
-	}
 	data->wall_img = load_image(data->mlx, data->wall_path);
 	data->bg_img = load_image(data->mlx, data->bg_path);
 	data->coin_img = load_image(data->mlx, data->coin_path);

@@ -6,14 +6,14 @@
 #    By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/16 20:34:16 by sumon             #+#    #+#              #
-#    Updated: 2023/11/23 11:18:03 by msumon           ###   ########.fr        #
+#    Updated: 2023/11/23 11:46:04 by msumon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 OBJS 		= so_long.c ./srcs/draw_game.c ./srcs/elements.c ./srcs/load_map.c ./srcs/key_moves.c \
-				./srcs/so_long_utils.c
+				./srcs/so_long_utils.c ./srcs/map_validator.c
 CC			= cc
-CFLAGS		= -Wall -Werror -Wextra -lmlx -lX11 -lXext -lm #-Lmlx -lmlx -framework OpenGL -framework AppKit 
+CFLAGS		= -g -Wall -Werror -Wextra -lmlx -lX11 -lXext -lm #-Lmlx -lmlx -framework OpenGL -framework AppKit 
 NAME		= so_long
 LIBFT		= ./libft/
 GNL			= ./get_next_line/

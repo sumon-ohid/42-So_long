@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 11:19:18 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/23 11:17:41 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/23 12:12:21 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,20 +61,25 @@ void	initialize_mlx(t_data *data)
 
 int	main(int argc, char **argv)
 {
-	t_data	data;
+    t_data	data;
 
-	data.moves = 0;
-	data.map_path = argv[1];
-	data.wall_path = "./files/wall.xpm";
-	data.bg_path = "./files/bg.xpm";
-	data.coin_path = "./files/coin.xpm";
-	data.player_path = "./files/mushroom.xpm";
-	data.exit_path = "./files/exit.xpm";
-	if (argc != 2)
-		print_error_and_exit("Invalid Argument");
-	initialize_mlx(&data);
-	load_resources(&data, argv[1]);
-	draw_game(&data);
-	set_event(&data);
-	return (0);
+    if (argc != 2)
+        print_error_and_exit("Invalid Argument");
+    data.moves = 0;
+    data.map_path = argv[1];
+    data.wall_path = "./files/wall.xpm";
+    data.bg_path = "./files/bg.xpm";
+    data.coin_path = "./files/coin.xpm";
+    data.player_path = "./files/mushroom.xpm";
+    data.exit_path = "./files/exit.xpm";
+	data.map = load_map(data.map_path);
+	if (!(data.map))
+	{
+		print_error_and_exit("Invalid map");
+	}
+    initialize_mlx(&data);
+    load_resources(&data);
+    draw_game(&data);
+    set_event(&data);
+    return (0);
 }

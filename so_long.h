@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 23:12:47 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/23 11:17:52 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/23 12:06:36 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int			key_hook(int keycode, t_data *data);
 void		quit_game(t_data *data);
 void		draw_game(t_data *data);
 void		set_event(t_data *data);
-void		load_resources(t_data *data, char *map_path);
+void		load_resources(t_data *data);
 void		print_error_and_exit(const char *error_message);
 int			height_count(char **map);
 void		so_long_welcome(void);
@@ -83,5 +83,6 @@ void		initialize_mlx(t_data *data);
 int			close_window(void *param);
 int			map_height(char *str);
 int			map_width(char *map_path);
+int 		is_valid_map(t_data *data);
 
 #endif
