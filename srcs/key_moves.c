@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:56:21 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/21 13:52:52 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/23 16:01:23 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	get_current_position(char **map, int *x, int *y)
 		}
 		i++;
 	}
+	free_map(map);
 }
 
 int	count_coins(char **map)

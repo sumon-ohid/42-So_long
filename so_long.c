@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 11:19:18 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/23 15:13:56 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/23 16:04:27 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,13 @@ int	main(int argc, char **argv)
 	data.map_width = map_width(data.map_path);
 	data.map = load_map(data.map_path);
 	if (!(data.map))
+	{
+		free_map(data.map);
 		print_error_and_exit("Invalid map");
+	}
 	game_start(&data);
+	free(data.mlx);
+	free(data.mlx_win);
+	free_map(data.map);
 	return (0);
 }
