@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 23:12:47 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/23 08:26:30 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/23 08:42:28 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ typedef struct s_data
 	int		coins_collected;
 	int		moves;
 	int		map_height;
-	int 	map_width;
+	int		map_width;
 	char	**map;
 	char	*map_path;
 	char	*wall_path;
@@ -82,8 +82,8 @@ int			height_count(char **map);
 void		so_long_welcome(void);
 int			ft_strlen_sl(char *str);
 void		initialize_mlx(t_data *data);
-int 		close_window(void *param);
-int 		map_height(char *str);
-int 		map_width(char *map_path);
+int			close_window(void *param);
+int			map_height(char *str);
+int			map_width(char *map_path);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 11:19:18 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/23 08:37:47 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/23 08:42:13 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,28 +29,26 @@ int	key_hook(int keycode, t_data *data)
 	return (0);
 }
 
-int close_window(void *param)
+int	close_window(void *param)
 {
-    t_data *data = (t_data *)param;
+	t_data	*data;
 
-    mlx_destroy_window(data->mlx, data->mlx_win);
-    printf("Window closed. Exiting...\n");
-    exit(0);
-
-    return (0);
+	data = (t_data *)param;
+	mlx_destroy_window(data->mlx, data->mlx_win);
+	printf("Window closed. Exiting...\n");
+	exit(0);
+	return (0);
 }
 
 void	initialize_mlx(t_data *data)
 {
-	int win_height;
-	int win_width;
+	int	win_height;
+	int	win_width;
 
 	win_height = map_height(data->map_path) * CELL_SIZE;
-	win_width  = map_width(data->map_path) * CELL_SIZE;
-
+	win_width = map_width(data->map_path) * CELL_SIZE;
 	ft_printf("%d\n", win_height);
 	ft_printf("%d\n", win_width);
-	
 	data->mlx = mlx_init();
 	if (!data->mlx)
 	{

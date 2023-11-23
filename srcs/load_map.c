@@ -6,16 +6,16 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 15:11:49 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/23 08:37:41 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/23 08:41:44 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-int map_height(char *str)
+int	map_height(char *str)
 {
-	int		fd;
-	int		height;
+	int	fd;
+	int	height;
 
 	height = 0;
 	fd = open(str, O_RDONLY);
@@ -26,26 +26,26 @@ int map_height(char *str)
 	close(fd);
 	return (height);
 }
-int map_width(char *map_path)
+
+int	map_width(char *map_path)
 {
-    int fd;
-    int width;
-    char *line;
+	int		fd;
+	int		width;
+	char	*line;
 
-    fd = open(map_path, O_RDONLY);
-    if (fd < 0)
-        print_error_and_exit("Error opening map.");
-
-    line = get_next_line(fd);
-    if (!line)
-    {
-        close(fd);
-        return (0);
-    }
-    width = ft_strlen_sl(line) - 1;
-    free(line);
-    close(fd);
-    return (width);
+	fd = open(map_path, O_RDONLY);
+	if (fd < 0)
+		print_error_and_exit("Error opening map.");
+	line = get_next_line(fd);
+	if (!line)
+	{
+		close(fd);
+		return (0);
+	}
+	width = ft_strlen_sl(line) - 1;
+	free(line);
+	close(fd);
+	return (width);
 }
 
 char	**load_map(char *map_path)
@@ -55,7 +55,7 @@ char	**load_map(char *map_path)
 	int		fd;
 	int		i;
 	int		height;
-	
+
 	height = map_height(map_path);
 	i = 0;
 	fd = open(map_path, O_RDONLY);
