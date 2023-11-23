@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 23:12:47 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/23 08:42:28 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/23 11:17:52 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@
 # include "./minilibx-linux/mlx.h"
 # include <stdio.h>
 
-# define WIN_WIDTH 1087
-# define WIN_HEIGHT 255
 # define CELL_SIZE 32
 # define KEY_W 119
 # define KEY_A 97

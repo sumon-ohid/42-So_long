@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 11:19:18 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/23 08:42:13 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/23 11:17:41 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,6 @@ void	initialize_mlx(t_data *data)
 
 	win_height = map_height(data->map_path) * CELL_SIZE;
 	win_width = map_width(data->map_path) * CELL_SIZE;
-	ft_printf("%d\n", win_height);
-	ft_printf("%d\n", win_width);
 	data->mlx = mlx_init();
 	if (!data->mlx)
 	{

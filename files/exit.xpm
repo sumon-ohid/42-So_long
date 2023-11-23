@@ -1,5 +1,5 @@
 /* XPM */
-static char *_777f67fc8de44ade1f8d8562a7d2719t0L3Kj6gRPE0wObT[] = {
+static char *exit1700726106[] = {
 /* columns rows colors chars-per-pixel */
 "32 32 58 1 ",
 "  c None",
@@ -63,11 +63,11 @@ static char *_777f67fc8de44ade1f8d8562a7d2719t0L3Kj6gRPE0wObT[] = {
 /* pixels */
 "      .##################.      ",
 "      :zzzzzzzzzzzzzzzzzl>      ",
-"      :q#%%%%%%%%%%%%%%#f>      ",
+"      :q#%%%%%%%%%%%=%=#f>      ",
 "      :71VVVVVVVVVVVVVB49>      ",
-"      :71VmssssssssssmB49>      ",
-"      :71Ve37777777726B49>      ",
-"      :71Vekvvvvvvvvg6B49>      ",
+"      :71VmssssdsssssmB49>      ",
+"      :71Ve38887878826B49>      ",
+"      :71Vwkvvvvvvvvg6B49>      ",
 "      :71Vekvvvvvvvvg6B49>      ",
 "      :71Vekvvvvvvvvg6B49>      ",
 "      :71Vbcvvvvvvvvg6B49>      ",
@@ -76,21 +76,21 @@ static char *_777f67fc8de44ade1f8d8562a7d2719t0L3Kj6gRPE0wObT[] = {
 "      :71Vekvvvvvvvvg6B49>      ",
 "      :71Vekvvvvvvvvg6B49>      ",
 "      :71Vekvvvvvvvvg6B49>      ",
-"      :71Va;;;;;;;;;;yB49>      ",
-"      :71VVVVVVVVVVMswr49>      ",
+"      :71Va;;;;;;;;;-uB59>      ",
+"      :71VVVVVVVVVVMswy49>      ",
 "      :71VVVVVVVVVVNswr49>      ",
-"      <71Va;;;;;;;;;;yB49>      ",
+"      <71Va;;;;;;;;;-uB49>      ",
 "      z71Vekvvvvvvvvg6B49>      ",
 "      ,71Vekvvvvvvvvg6B49>      ",
 "      :71Vekvvvvvvvvg6B49>      ",
 "      :71Vekvvvvvvvvg6B59>      ",
-"      :71Vekvvvvvvvvg6Bxj>      ",
+"      :71Vekvvvvvvvvg6Bxl>      ",
 "      :71Vekvvvvvvvvg6Bih>      ",
 "      :71Vekvvvvvvvvg6B49>      ",
 "      :71Vekvvvvvvvvg6B49>      ",
 "      :71Vekvvvvvvvvg6B49>      ",
-"      :71Ve37777777726B49>      ",
-"      :71VmssssssssssmB49>      ",
+"      :71Vw38888788826B49>      ",
+"      :71VmsssssdssssmB49>      ",
 "      :71VVVVVVVVVVVVVB49>      ",
-"      .#.**************##.      "
+"      .#.*************=##.      "
 };
