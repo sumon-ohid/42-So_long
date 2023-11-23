@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 06:40:10 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/23 08:25:13 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/23 13:52:41 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	set_event(t_data *data)
 
 void	print_error_and_exit(const char *error_message)
 {
-	ft_printf("Error: %s\n", error_message);
+	ft_printf("Error\n%s\n", error_message);
 	exit(EXIT_FAILURE);
 }
 
