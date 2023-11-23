@@ -6,28 +6,11 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 11:19:18 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/23 14:46:59 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/23 15:13:56 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-int	key_hook(int keycode, t_data *data)
-{
-	if (keycode == KEY_ESC)
-	{
-		free_map(data->map);
-		mlx_destroy_window(data->mlx, data->mlx_win);
-		ft_printf("You pressed ESC. Game Exit.\n");
-		exit(0);
-	}
-	else if (keycode == KEY_W || keycode == KEY_A || keycode == KEY_S
-		|| keycode == KEY_D)
-	{
-		do_the_move(keycode, data);
-	}
-	return (0);
-}
 
 int	close_window(void *param)
 {
@@ -54,6 +37,19 @@ void	initialize_mlx(t_data *data)
 	}
 }
 
+void	game_start(t_data *data)
+{
+	if (is_valid_map(data) == 1)
+	{
+		initialize_mlx(data);
+		load_resources(data);
+		draw_game(data);
+		set_event(data);
+	}
+	else
+		print_error_and_exit("Map is not valid !!");
+}
+
 int	main(int argc, char **argv)
 {
 	t_data	data;
@@ -75,14 +71,6 @@ int	main(int argc, char **argv)
 	data.map = load_map(data.map_path);
 	if (!(data.map))
 		print_error_and_exit("Invalid map");
-	if (is_valid_map(&data) == 1)
-	{
-		initialize_mlx(&data);
-		load_resources(&data);
-		draw_game(&data);
-		set_event(&data);
-	}
-	else
-		print_error_and_exit("Map is not valid !!");
+	game_start(&data);
 	return (0);
 }

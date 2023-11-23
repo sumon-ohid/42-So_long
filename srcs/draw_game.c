@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 06:41:27 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/23 13:38:30 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/23 15:14:03 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,21 @@ t_img	load_image(void *mlx, char *file)
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
 			&img.endian);
 	return (img);
+}
+
+int	key_hook(int keycode, t_data *data)
+{
+	if (keycode == KEY_ESC)
+	{
+		free_map(data->map);
+		mlx_destroy_window(data->mlx, data->mlx_win);
+		ft_printf("You pressed ESC. Game Exit.\n");
+		exit(0);
+	}
+	else if (keycode == KEY_W || keycode == KEY_A || keycode == KEY_S
+		|| keycode == KEY_D)
+	{
+		do_the_move(keycode, data);
+	}
+	return (0);
 }

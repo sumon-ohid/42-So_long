@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 23:12:47 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/23 12:06:36 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/23 15:16:04 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,6 @@ void		initialize_mlx(t_data *data);
 int			close_window(void *param);
 int			map_height(char *str);
 int			map_width(char *map_path);
-int 		is_valid_map(t_data *data);
+int			is_valid_map(t_data *data);
 
 #endif
