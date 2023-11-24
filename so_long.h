@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 23:12:47 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/24 12:25:42 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/24 12:40:57 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@
 # define KEY_D 100
 # define KEY_ESC 65307
 # define COIN 5
-
 
 typedef struct s_img
 {
