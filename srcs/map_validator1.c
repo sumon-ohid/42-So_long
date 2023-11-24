@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 16:55:35 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/24 08:57:51 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/24 09:18:12 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,34 +57,26 @@ int	has_valid_char(t_data *data)
 	return (1);
 }
 
-
 int	has_wall_around(t_data *data)
 {
-	int		i;
-	int		j;
-	int		height;
-	int		width;
-	char	**map;
+	int	i;
+	int	j;
 
 	i = 0;
-	j = 0;
-	height = data->map_height;
-	width = data->map_width;
-	map = data->map;
-	while (i < height)
+	while (i < data->map_height)
 	{
 		j = 0;
-		while (j < width)
+		while (j < data->map_width)
 		{
-			if (i == 0 && map[i][j] != '1')
+			if (i == 0 && data->map[i][j] != '1')
 				return (0);
-			else if (i == height - 1 && map[i][j] != '1')
+			else if (i == data->map_height - 1 && data->map[i][j] != '1')
 				return (0);
 			else
 			{
-				if (j == 0 && map[i][j] != '1')
+				if (j == 0 && data->map[i][j] != '1')
 					return (0);
-				else if (j == width - 1 && map[i][j] != '1')
+				else if (j == data->map_width - 1 && data->map[i][j] != '1')
 					return (0);
 			}
 			j++;

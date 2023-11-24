@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 20:41:12 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/24 08:59:12 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/24 09:37:02 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	contains_exit(t_data *data)
 {
-	int	i;
-	int	j;
-	int	count;
-	char **map;
+	int		i;
+	int		j;
+	int		count;
+	char	**map;
 
 	map = data->map;
 	i = 0;
@@ -40,10 +40,10 @@ int	contains_exit(t_data *data)
 
 int	contains_collectible(t_data *data)
 {
-	int	i;
-	int	j;
-	int	count;
-	char **map;
+	int		i;
+	int		j;
+	int		count;
+	char	**map;
 
 	map = data->map;
 	i = 0;
@@ -66,10 +66,10 @@ int	contains_collectible(t_data *data)
 
 int	contains_start(t_data *data)
 {
-	int	i;
-	int	j;
-	int	count;
-	char **map;
+	int		i;
+	int		j;
+	int		count;
+	char	**map;
 
 	map = data->map;
 	i = 0;
@@ -94,11 +94,7 @@ int	contains_start(t_data *data)
 
 int	is_valid_map(t_data *data)
 {
-	return (contains_exit(data) 
-		&& contains_collectible(data)
-		&& contains_start(data)
-		&& has_wall_around(data)
-		&& has_valid_char(data)
-		&& valid_path_check(data)
-		&& is_rectangular(data));
+	return (contains_exit(data) && contains_collectible(data)
+		&& contains_start(data) && has_wall_around(data) && has_valid_char(data)
+		&& valid_path_check(data) && is_rectangular(data));
 }

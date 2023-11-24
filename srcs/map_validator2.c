@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 16:55:35 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/24 08:55:08 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/24 09:43:47 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,8 @@ int	**create_2d_array(int height, int width)
 	while (i < height)
 	{
 		array[i] = malloc(width * sizeof(int));
-		if (array[i] == NULL)
-		{
+		if (!array[i])
 			print_error_and_exit("Each Array malloc failed.");
-		}
 		ft_memset(array[i], 0, width * sizeof(int));
 		i++;
 	}
@@ -61,21 +59,14 @@ void	free_2d_array(int **array, int height)
 	free(array);
 }
 
-int	valid_path_check(t_data *data)
+void	initialize_data(t_data *data, int *start, int *end,
+		int *total_collectibles)
 {
-	int	**visited;
-	int	start[2];
-	int	end[2];
-	int	total_collectibles;
-	int	collected;
 	int	i;
 	int	j;
-	int	result;
 
-	visited = create_2d_array(data->map_height, data->map_width);
-	total_collectibles = 0;
-	collected = 0;
 	i = 0;
+	*total_collectibles = 0;
 	while (i < data->map_height)
 	{
 		j = 0;
@@ -93,12 +84,26 @@ int	valid_path_check(t_data *data)
 			}
 			else if (data->map[i][j] == 'C')
 			{
-				total_collectibles++;
+				(*total_collectibles)++;
 			}
 			j++;
 		}
 		i++;
 	}
+}
+
+int	valid_path_check(t_data *data)
+{
+	int	**visited;
+	int	start[2];
+	int	end[2];
+	int	total_collectibles;
+	int	collected;
+	int	result;
+
+	collected = 0;
+	visited = create_2d_array(data->map_height, data->map_width);
+	initialize_data(data, start, end, &total_collectibles);
 	flood_fill(data, start[0], start[1], visited, &collected);
 	result = visited[end[0]][end[1]] && collected == total_collectibles;
 	free_2d_array(visited, data->map_height);
