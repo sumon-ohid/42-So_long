@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 23:12:47 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/24 10:43:08 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/24 12:25:42 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # define KEY_D 100
 # define KEY_ESC 65307
 # define COIN 5
+
 
 typedef struct s_img
 {
@@ -64,6 +65,15 @@ typedef struct s_data
 	t_img	exit_img;
 }			t_data;
 
+typedef struct s_fill
+{
+	t_data	*data;
+	int		x;
+	int		y;
+	int		**visited;
+	int		*collected;
+}			t_fill;
+
 void		draw_elements(t_data *data);
 char		**load_map(char *map_path);
 void		free_map(char **map);
@@ -88,6 +98,7 @@ int			is_rectangular(t_data *data);
 int			has_wall_around(t_data *data);
 int			has_valid_char(t_data *data);
 int			valid_path_check(t_data *data);
-void 		bonus_draw_text(t_data *data);
+void		bonus_draw_text(t_data *data);
+void		free_2d_array(int **array, int height);
 
 #endif
