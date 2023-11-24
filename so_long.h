@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 23:12:47 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/24 08:56:15 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/24 10:43:08 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,6 @@ int			is_rectangular(t_data *data);
 int			has_wall_around(t_data *data);
 int			has_valid_char(t_data *data);
 int			valid_path_check(t_data *data);
+void 		bonus_draw_text(t_data *data);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 12:58:35 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/24 09:21:52 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/24 10:48:49 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,23 @@
 void	draw_game(t_data *data)
 {
 	draw_elements(data);
+	bonus_draw_text(data);
 	so_long_welcome();
+}
+void	bonus_draw_text(t_data *data)
+{
+	int		x;
+	int		y;
+	int		color;
+	char	*moves;
+	char	*text;
+
+	x = 10;
+	y = 20;
+	color = 0x000000;
+	moves = ft_itoa(data->moves);
+	text = ft_strjoin("MOVES : ", moves);
+	mlx_string_put(data->mlx, data->mlx_win, x, y, color, text);
 }
 
 void	element(t_data *data, t_img *img, int x, int y)
@@ -64,19 +80,4 @@ void	free_map(char **map)
 		i++;
 	}
 	free(map);
-}
-
-void	so_long_welcome(void)
-{
-	ft_printf("\n");
-	ft_printf(" █░█░█ █▀▀ █░░ █▀▀ █▀█ █▀▄▀█ █▀▀   ▀█▀ █▀█\n");
-	ft_printf(" ▀▄▀▄▀ ██▄ █▄▄ █▄▄ █▄█ █░▀░█ ██▄   ░█░ █▄█\n");
-	ft_printf("\n");
-	ft_printf("███████╗ ██████╗     ██╗      ██████╗ ███╗   ██╗ ██████╗ \n");
-	ft_printf("██╔════╝██╔═══██╗    ██║     ██╔═══██╗████╗  ██║██╔════╝ \n");
-	ft_printf("███████╗██║   ██║    ██║     ██║   ██║██╔██╗ ██║██║  ███╗\n");
-	ft_printf("╚════██║██║   ██║    ██║     ██║   ██║██║╚██╗██║██║   ██║\n");
-	ft_printf("███████║╚██████╔╝    ███████╗╚██████╔╝██║ ╚████║╚██████╔╝\n");
-	ft_printf("╚══════╝ ╚═════╝     ╚══════╝ ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ \n");
-	ft_printf("\n");
 }

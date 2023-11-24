@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:56:21 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/23 16:01:23 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/24 10:43:25 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,4 +123,5 @@ void	do_the_move(int keycode, t_data *data)
 	}
 	ft_printf("Moves: %d\n", data->moves);
 	draw_elements(data);
+	bonus_draw_text(data);
 }
