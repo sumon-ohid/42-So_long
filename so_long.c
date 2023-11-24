@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 11:19:18 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/23 16:04:27 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/24 09:02:31 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@ int	close_window(void *param)
 	t_data	*data;
 
 	data = (t_data *)param;
+	free_map(data->map);
 	mlx_destroy_window(data->mlx, data->mlx_win);
-	printf("Window closed. Exiting...\n");
+	ft_printf("Window closed. Exiting...\n");
 	exit(0);
 	return (0);
 }
@@ -75,8 +76,6 @@ int	main(int argc, char **argv)
 		print_error_and_exit("Invalid map");
 	}
 	game_start(&data);
-	free(data.mlx);
-	free(data.mlx_win);
 	free_map(data.map);
 	return (0);
 }
