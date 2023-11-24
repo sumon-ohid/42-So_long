@@ -6,7 +6,7 @@
 #    By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/16 20:34:16 by sumon             #+#    #+#              #
-#    Updated: 2023/11/24 11:14:36 by msumon           ###   ########.fr        #
+#    Updated: 2023/11/24 14:58:08 by msumon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,16 +20,11 @@ NAME		= so_long
 LIBFT		= ./libft/
 GNL			= ./get_next_line/
 FTPRINTF	= ./ft_printf/
-MLX			= ./minilibx-linux/
 
 # Color codes
 GREEN		= $(shell tput -Txterm setaf 2)
 BLUE		= $(shell tput -Txterm setaf 4)
 PURPLE		= $(shell tput -Txterm setaf 5)
-
-mlx:
-	@echo ${Q}${NL}${GREEN}======== minilibx ========${NC}${Q}
-	@$(MAKE) -C $(MLX) all
 
 libft:
 	@echo ${Q}${NL}${GREEN}======== libft ========${NC}${Q}
@@ -43,7 +38,7 @@ ftprintf:
 	@echo ${Q}${NL}${GREEN}======== ft_printf ========${NC}${Q}
 	@$(MAKE) -C $(FTPRINTF) all
 
-all: mlx libft gnl ftprintf compile
+all: libft gnl ftprintf compile
 
 %.o : %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
@@ -51,12 +46,11 @@ all: mlx libft gnl ftprintf compile
 
 $(NAME): libft gnl ftprintf
 	@echo ${Q}${NL}${GREEN}======== All Together Compiled! ========${NC}${Q}
-	@$(CC) $(CFLAGS) $(OBJS) $(BONUS) $(MLX)libmlx.a $(LIBFT)libft.a $(GNL)gnl.a $(FTPRINTF)libftprintf.a -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJS) $(BONUS) $(LIBFT)libft.a $(GNL)gnl.a $(FTPRINTF)libftprintf.a -o $(NAME)
 
 compile: $(NAME)
 
 clean:
-	@$(MAKE) -C $(MLX) clean
 	@$(MAKE) -C $(LIBFT) clean
 	@$(MAKE) -C $(FTPRINTF) clean
 	@$(MAKE) -C $(GNL) clean

@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 12:58:35 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/24 11:12:21 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/24 14:55:14 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,6 @@ void	free_map(char **map)
 		free(map[i]);
 		i++;
 	}
+	free(map[i]);
 	free(map);
 }

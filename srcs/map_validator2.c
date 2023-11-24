@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 16:55:35 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/24 12:37:15 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/24 14:39:43 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ int	valid_path_check(t_data *data)
 	params = (t_fill){data, start[0], start[1], visited, &(int){0}};
 	valid_path_check_helper(params);
 	if (*params.collected == data->coins)
-		result = visited[end[0]][end[1]];
+		result = 1;
 	free_2d_array(visited, data->map_height);
 	return (result);
 }

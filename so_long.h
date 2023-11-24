@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 23:12:47 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/24 12:40:57 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/24 14:20:30 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@
 # include "get_next_line/get_next_line.h"
 # include "libft/libft.h"
 # include <math.h>
-//# include <mlx.h>
-//# include "./mlx_MacOS/mlx.h"
-# include "./minilibx-linux/mlx.h"
+# include <mlx.h>
 # include <stdio.h>
 
 # define CELL_SIZE 32

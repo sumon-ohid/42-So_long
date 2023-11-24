@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 15:11:49 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/23 16:03:48 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/24 15:59:04 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ char	**load_map(char *map_path)
 		free(line);
 		line = get_next_line(fd);
 	}
+	free(line);
 	close(fd);
 	map[i] = NULL;
 	return (map);
