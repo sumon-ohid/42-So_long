@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 20:41:12 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/23 17:22:34 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/24 08:59:12 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,10 +94,11 @@ int	contains_start(t_data *data)
 
 int	is_valid_map(t_data *data)
 {
-	printf("%d\n", has_wall_around(data));
 	return (contains_exit(data) 
 		&& contains_collectible(data)
 		&& contains_start(data)
 		&& has_wall_around(data)
+		&& has_valid_char(data)
+		&& valid_path_check(data)
 		&& is_rectangular(data));
 }

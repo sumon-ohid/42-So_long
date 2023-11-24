@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 16:55:35 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/23 17:24:16 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/24 08:57:51 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,33 @@ int	is_rectangular(t_data *data)
 	return (1);
 }
 
-// int	valid_path(t_data *data)
-// {
-// 	return (1);
-// }
+int	has_valid_char(t_data *data)
+{
+	int		i;
+	int		j;
+	int		height;
+	int		width;
+	char	**map;
+
+	i = 0;
+	height = data->map_height;
+	width = data->map_width;
+	map = data->map;
+	while (map[i] && i < height)
+	{
+		j = 0;
+		while (map[i][j] && j < width)
+		{
+			if (map[i][j] != '0' && map[i][j] != '1' && map[i][j] != 'C'
+				&& map[i][j] != 'P' && map[i][j] != 'E')
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
+
 
 int	has_wall_around(t_data *data)
 {
