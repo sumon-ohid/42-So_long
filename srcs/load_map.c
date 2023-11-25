@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 15:11:49 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/24 15:59:04 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/25 20:09:50 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,22 @@
 
 int	map_height(char *str)
 {
-	int	fd;
-	int	height;
+	int		fd;
+	int		height;
+	char	*line;
 
-	height = 0;
 	fd = open(str, O_RDONLY);
 	if (fd < 0)
 		print_error_and_exit("Error opening map.");
-	while (get_next_line(fd))
+	height = 0;
+	line = get_next_line(fd);
+	while (line != NULL)
+	{
 		height++;
+		free(line);
+		line = get_next_line(fd);
+	}
+	free(line);
 	close(fd);
 	return (height);
 }
@@ -76,6 +83,21 @@ char	**load_map(char *map_path)
 	map[i] = NULL;
 	return (map);
 }
+
+// int	map_height(char *str)
+// {
+// 	int	fd;
+// 	int	height;
+
+// 	height = 0;
+// 	fd = open(str, O_RDONLY);
+// 	if (fd < 0)
+// 		print_error_and_exit("Error opening map.");
+// 	while (get_next_line(fd))
+// 		height++;
+// 	close(fd);
+// 	return (height);
+// }
 
 // char	**load_map(void)
 // {
