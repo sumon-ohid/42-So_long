@@ -6,19 +6,23 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 11:19:18 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/27 17:24:29 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/27 18:50:58 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	close_window(void *param)
+int	close_window(t_data *data)
 {
-	t_data	*data;
-
-	data = (t_data *)param;
 	free_map(data->map);
+	mlx_destroy_image(data->mlx, data->exit_img.img);
+	mlx_destroy_image(data->mlx, data->bg_img.img);
+	mlx_destroy_image(data->mlx, data->coin_img.img);
+	mlx_destroy_image(data->mlx, data->player_img.img);
+	mlx_destroy_image(data->mlx, data->wall_img.img);
 	mlx_destroy_window(data->mlx, data->mlx_win);
+	mlx_destroy_display(data->mlx);
+	free(data->mlx);
 	ft_printf("Window closed. Exiting...\n");
 	exit(0);
 	return (0);
@@ -48,7 +52,12 @@ void	game_start(t_data *data)
 		set_event(data);
 	}
 	else
+	{
+		mlx_destroy_display(data->mlx);
+		free(data->mlx);
+		free_map(data->map);
 		print_error_and_exit("Map is not valid !!");
+	}
 }
 
 int	main(int argc, char **argv)
@@ -57,9 +66,6 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 		print_error_and_exit("Invalid Argument");
-	data.mlx = mlx_init();
-	if (!data.mlx)
-		print_error_and_exit("Failed to initialize mlx");
 	data.moves = 0;
 	data.map_path = argv[1];
 	data.wall_path = "./files/wall.xpm";
@@ -75,6 +81,9 @@ int	main(int argc, char **argv)
 		free_map(data.map);
 		print_error_and_exit("Invalid map");
 	}
+	data.mlx = mlx_init();
+	if (!data.mlx)
+		print_error_and_exit("Failed to initialize mlx");
 	game_start(&data);
 	return (0);
 }

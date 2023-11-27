@@ -6,7 +6,7 @@
 #    By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/16 20:34:16 by sumon             #+#    #+#              #
-#    Updated: 2023/11/24 14:58:08 by msumon           ###   ########.fr        #
+#    Updated: 2023/11/27 18:24:55 by msumon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,8 @@ GREEN		= $(shell tput -Txterm setaf 2)
 BLUE		= $(shell tput -Txterm setaf 4)
 PURPLE		= $(shell tput -Txterm setaf 5)
 
+all: libft gnl ftprintf compile
+
 libft:
 	@echo ${Q}${NL}${GREEN}======== libft ========${NC}${Q}
 	@$(MAKE) -C $(LIBFT) all
@@ -38,14 +40,13 @@ ftprintf:
 	@echo ${Q}${NL}${GREEN}======== ft_printf ========${NC}${Q}
 	@$(MAKE) -C $(FTPRINTF) all
 
-all: libft gnl ftprintf compile
 
 %.o : %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 
 $(NAME): libft gnl ftprintf
-	@echo ${Q}${NL}${GREEN}======== All Together Compiled! ========${NC}${Q}
+	@echo ${Q}${NL}${BLUE}======== All Together Compiled! ========${NC}${Q}
 	@$(CC) $(CFLAGS) $(OBJS) $(BONUS) $(LIBFT)libft.a $(GNL)gnl.a $(FTPRINTF)libftprintf.a -o $(NAME)
 
 compile: $(NAME)

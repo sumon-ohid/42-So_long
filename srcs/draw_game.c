@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 06:41:27 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/24 14:48:57 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/27 18:28:33 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,7 @@ int	key_hook(int keycode, t_data *data)
 {
 	if (keycode == KEY_ESC)
 	{
-		free_map(data->map);
-		mlx_destroy_window(data->mlx, data->mlx_win);
-		ft_printf("You pressed ESC. Game Exit.\n");
-		exit(0);
+		close_window(data);
 	}
 	else if (keycode == KEY_W || keycode == KEY_A || keycode == KEY_S
 		|| keycode == KEY_D)

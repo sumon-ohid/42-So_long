@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 23:12:47 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/27 16:28:34 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/27 18:20:58 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int			height_count(char **map);
 void		so_long_welcome(void);
 int			ft_strlen_sl(char *str);
 void		initialize_mlx(t_data *data);
-int			close_window(void *param);
+int			close_window(t_data *data);
 int			map_height(char *str);
 int			map_width(char *map_path);
 int			is_valid_map(t_data *data);
