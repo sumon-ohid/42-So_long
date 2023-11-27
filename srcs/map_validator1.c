@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 16:55:35 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/24 12:25:27 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/27 17:26:56 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,17 +84,4 @@ int	has_wall_around(t_data *data)
 		i++;
 	}
 	return (1);
-}
-
-void	free_2d_array(int **array, int height)
-{
-	int	i;
-
-	i = 0;
-	while (i < height)
-	{
-		free(array[i]);
-		i++;
-	}
-	free(array);
 }

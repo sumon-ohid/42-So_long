@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 11:19:18 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/24 10:33:53 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/27 17:24:29 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,5 @@ int	main(int argc, char **argv)
 		print_error_and_exit("Invalid map");
 	}
 	game_start(&data);
-	free_map(data.map);
 	return (0);
 }

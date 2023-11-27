@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:56:21 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/24 15:03:19 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/27 17:10:56 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,14 @@ void	get_current_position(char **map, int *x, int *y)
 	free_map(map);
 }
 
-int	count_coins(char **map)
+int	count_coins(t_data *data)
 {
-	int	i;
-	int	j;
-	int	coins;
+	int		i;
+	int		j;
+	int		coins;
+	char	**map;
 
+	map = data->map;
 	i = 0;
 	coins = 0;
 	while (map[i])
@@ -74,19 +76,18 @@ int	count_coins(char **map)
 
 void	move_player(int new_x, int new_y, char **map, t_data *data)
 {
-	int	total_coins;
 	int	coins_collected;
 	int	current_x;
 	int	current_y;
 
 	coins_collected = 0;
 	get_current_position(map, &current_x, &current_y);
-	total_coins = count_coins(map);
+	data->total_coins = count_coins(data);
 	if (map[new_y][new_x] != '1')
 	{
 		if (map[new_y][new_x] == 'E')
 		{
-			if (coins_collected == total_coins)
+			if (coins_collected == data->total_coins)
 				quit_game(data);
 			else
 				return ;

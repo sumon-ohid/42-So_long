@@ -6,102 +6,82 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 16:55:35 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/24 14:39:43 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/27 17:10:50 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-int	**create_2d_array(int height, int width)
+void	can_collect_all_and_exit(t_data *data, int x, int y, int *coins)
 {
-	int	i;
-	int	**array;
-
-	i = 0;
-	array = malloc(height * sizeof(int *));
-	if (!array)
-		print_error_and_exit("Array malloc failed.");
-	while (i < height)
+	if (x <= 0 || y <= 0 || y >= data->map_height || x >= data->map_width
+		|| data->map[y][x] == '1' || data->map[y][x] == 'c'
+		|| data->map[y][x] == 'o' || data->map[y][x] == 'e'
+		|| data->map[y][x] == 'E')
 	{
-		array[i] = malloc(width * sizeof(int));
-		if (!array[i])
-			print_error_and_exit("Each Array malloc failed.");
-		ft_memset(array[i], 0, width * sizeof(int));
-		i++;
-	}
-	return (array);
-}
-
-void	initialize_data(t_data *data, int *start, int *end,
-		int *total_collectibles)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < data->map_height)
-	{
-		j = 0;
-		while (j < data->map_width)
+		if (data->map[y][x] == 'E')
 		{
-			if (data->map[i][j] == 'P')
-			{
-				start[0] = i;
-				start[1] = j;
-			}
-			else if (data->map[i][j] == 'E')
-			{
-				end[0] = i;
-				end[1] = j;
-			}
-			else if (data->map[i][j] == 'C')
-				(*total_collectibles)++;
-			j++;
+			data->exitcheck = 1;
 		}
-		i++;
+		return ;
 	}
+	if (data->map[y][x] == 'C')
+	{
+		(*coins)--;
+		data->map[y][x] = 'c';
+	}
+	else if (data->map[y][x] == '0')
+		data->map[y][x] = 'o';
+	can_collect_all_and_exit(data, x - 1, y, coins);
+	can_collect_all_and_exit(data, x + 1, y, coins);
+	can_collect_all_and_exit(data, x, y - 1, coins);
+	can_collect_all_and_exit(data, x, y + 1, coins);
 }
 
-void	valid_path_check_helper(t_fill params)
+void	ft_restore(t_data *data)
 {
 	int	x;
 	int	y;
 
-	x = params.x;
-	y = params.y;
-	if (x < 0 || y < 0 || x >= params.data->map_height
-		|| y >= params.data->map_width || params.data->map[x][y] == '1'
-		|| params.visited[x][y])
-		return ;
-	params.visited[x][y] = 1;
-	if (params.data->map[x][y] == 'C')
-		(*params.collected)++;
-	valid_path_check_helper((t_fill){params.data, x - 1, y, params.visited,
-		params.collected});
-	valid_path_check_helper((t_fill){params.data, x + 1, y, params.visited,
-		params.collected});
-	valid_path_check_helper((t_fill){params.data, x, y - 1, params.visited,
-		params.collected});
-	valid_path_check_helper((t_fill){params.data, x, y + 1, params.visited,
-		params.collected});
+	x = 0;
+	y = 0;
+	while (y < data->map_height)
+	{
+		x = 0;
+		while (x < data->map_width)
+		{
+			if (data->map[y][x] == 'c')
+				data->map[y][x] = 'C';
+			else if (data->map[y][x] == 'e')
+				data->map[y][x] = 'E';
+			else if (data->map[y][x] == 'o')
+				data->map[y][x] = '0';
+			x++;
+		}
+		y++;
+	}
 }
 
 int	valid_path_check(t_data *data)
 {
-	int		**visited;
-	t_fill	params;
-	int		start[2];
-	int		end[2];
-	int		result;
+	int	x;
+	int	y;
+	int	coins;
 
-	result = 0;
-	data->coins = 0;
-	visited = create_2d_array(data->map_height, data->map_width);
-	initialize_data(data, start, end, &data->coins);
-	params = (t_fill){data, start[0], start[1], visited, &(int){0}};
-	valid_path_check_helper(params);
-	if (*params.collected == data->coins)
-		result = 1;
-	free_2d_array(visited, data->map_height);
-	return (result);
+	data->exitcheck = 0;
+	coins = count_coins(data);
+	get_current_position(data->map, &x, &y);
+	can_collect_all_and_exit(data, x, y, &coins);
+	if (coins != 0)
+	{
+		print_error_and_exit("No valid path, Access to coin is blocked");
+		return (0);
+	}
+	ft_restore(data);
+	if (data->exitcheck == 0)
+	{
+		print_error_and_exit("No valid path, Access to exit is blocked");
+		return (0);
+	}
+	return (1);
 }

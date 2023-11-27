@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 23:12:47 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/24 14:20:30 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/27 16:28:34 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@
 # define KEY_S 115
 # define KEY_D 100
 # define KEY_ESC 65307
-# define COIN 5
 
 typedef struct s_img
 {
@@ -43,11 +42,12 @@ typedef struct s_data
 {
 	void	*mlx;
 	void	*mlx_win;
-	int		coins;
+	int		total_coins;
 	int		coins_collected;
 	int		moves;
 	int		map_height;
 	int		map_width;
+	int		exitcheck;
 	char	**map;
 	char	*map_path;
 	char	*wall_path;
@@ -61,15 +61,6 @@ typedef struct s_data
 	t_img	player_img;
 	t_img	exit_img;
 }			t_data;
-
-typedef struct s_fill
-{
-	t_data	*data;
-	int		x;
-	int		y;
-	int		**visited;
-	int		*collected;
-}			t_fill;
 
 void		draw_elements(t_data *data);
 char		**load_map(char *map_path);
@@ -96,6 +87,6 @@ int			has_wall_around(t_data *data);
 int			has_valid_char(t_data *data);
 int			valid_path_check(t_data *data);
 void		bonus_draw_text(t_data *data);
-void		free_2d_array(int **array, int height);
+int			count_coins(t_data *data);
 
 #endif
