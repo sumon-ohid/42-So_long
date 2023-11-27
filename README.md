@@ -20,7 +20,7 @@ To run the game locally, follow these steps:
 
 The game require Minilibx. Make sure to install it before compiling or running the game.
 
-[Minilibx Library](https://github.com/42Paris/minilibx-linux)
+Check here : [Minilibx Library](https://github.com/42Paris/minilibx-linux)
 
 # Screenshots
 
