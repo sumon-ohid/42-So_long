@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 16:55:35 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/27 18:49:42 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/27 19:01:33 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,14 +75,14 @@ int	valid_path_check(t_data *data)
 	if (coins != 0)
 	{
 		ft_printf("Error\n");
-		ft_printf("No valid path, Access to coin is blocked");
+		ft_printf("No valid path, Access to coin is blocked\n");
 		return (0);
 	}
 	ft_restore(data);
 	if (data->exitcheck == 0)
 	{
 		ft_printf("Error\n");
-		ft_printf("No valid path, Access to exit is blocked");
+		ft_printf("No valid path, Access to exit is blocked\n");
 		return (0);
 	}
 	return (1);
