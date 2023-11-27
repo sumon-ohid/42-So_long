@@ -20,6 +20,8 @@ To run the game locally, follow these steps:
 
 The game require Minilibx. Make sure to install it before compiling or running the game.
 
+[Minilibx Library](https://github.com/42Paris/minilibx-linux)
+
 # Screenshots
 
 ![Game View](https://github.com/sumon-ohid/42-So_long/assets/117649754/a812b08f-a510-4e12-be21-6acb97983beb)
