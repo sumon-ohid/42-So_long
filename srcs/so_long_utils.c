@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 06:40:10 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/27 18:47:53 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/27 19:08:27 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ void	quit_game(t_data *data)
 {
 	int	moves;
 
-	close_window(data);
 	moves = data->moves;
 	ft_printf("\n");
 	ft_printf("██╗   ██╗ ██████╗ ██╗   ██╗    ██╗    ██╗ ██████╗ ███╗   ██╗\n");
@@ -67,4 +66,5 @@ void	quit_game(t_data *data)
 	ft_printf("   ╚═╝    ╚═════╝  ╚═════╝      ╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═══╝\n");
 	ft_printf("\n");
 	ft_printf("                 You used %d moves.\n", moves);
+	close_window(data);
 }
