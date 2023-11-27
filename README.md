@@ -19,5 +19,5 @@ To run the game locally, follow these steps:
    make all
    ./so_long maps/map.ber
 
-2. Dependencies
+2. **Dependencies:**
 The game require Minilibx. Make sure to install it before compiling or running the game.
