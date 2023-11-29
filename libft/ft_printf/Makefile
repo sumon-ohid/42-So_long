@@ -5,34 +5,37 @@
 #                                                     +:+ +:+         +:+      #
 #    By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/09/15 08:14:24 by msumon            #+#    #+#              #
-#    Updated: 2023/11/16 20:55:02 by msumon           ###   ########.fr        #
+#    Created: 2023/10/02 09:03:46 by msumon            #+#    #+#              #
+#    Updated: 2023/11/29 08:51:06 by msumon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS 			= get_next_line.c
+SRC = 	ft_print_char.c ft_print_digit.c ft_print_digit_cap.c \
+		ft_print_str.c ft_print_pointer.c ft_printf.c
 
-OBJS			= $(SRCS:.c=.o)
+OBJ = $(SRC:.c=.o)
 
-CC				= cc
+CC = cc
 
-RM				= rm -f
+CFLAGS = -Wall -Wextra -Werror
 
-CFLAGS			= -Wall -Wextra -Werror
+NAME = libftprintf.a
 
-NAME			= gnl.a
+all: $(NAME)
 
-all:			$(NAME)
+$(NAME): $(OBJ)
+	ar rcs $(NAME) $(OBJ)
 
-$(NAME):		$(OBJS)
-				ar rcs $(NAME) $(OBJS)
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-				$(RM) $(OBJS)
+	rm -f $(OBJ)
 
-fclean:			clean
-				$(RM) $(NAME)
+fclean: clean
+	rm -f $(NAME)
 
-re:				fclean $(NAME)
+re: fclean all
 
-.PHONY:			all clean fclean re
+.PHONY: all clean fclean re
+.SILENT:

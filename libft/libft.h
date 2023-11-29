@@ -6,15 +6,15 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 08:13:06 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/16 21:54:14 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/29 08:36:03 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include "../get_next_line/get_next_line.h"
-# include "../ft_printf/ft_printf.h"
+# include "get_next_line/get_next_line.h"
+# include "ft_printf/ft_printf.h"
 
 # include <limits.h>
 # include <stdio.h>

@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/02 09:03:43 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/16 21:54:30 by msumon           ###   ########.fr       */
+/*   Created: 2023/10/17 17:57:52 by sumon             #+#    #+#             */
+/*   Updated: 2023/11/29 08:46:03 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-# include "../get_next_line/get_next_line.h"
-# include "../libft/libft.h"
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1
+# endif
 
-# include <stdarg.h>
+# include "../ft_printf/ft_printf.h"
+# include "../libft.h"
+
+# include <fcntl.h>
 # include <stdio.h>
+# include <stdlib.h>
 # include <unistd.h>
 
-int	ft_printf(const char *str, ...);
-int	print_pointer(void *ptr);
-int	print_digit_cap(long n, int base);
-int	print_digit(long n, int base);
-int	print_str(char *str);
-int	print_char(int c);
+char	*get_next_line(int fd);
+size_t	clean_line(char *buffer);
+char	*ft_strjoin_gnl(char *s1, char *s2);
+size_t	ft_strlen_gnl(char *s);
 
 #endif

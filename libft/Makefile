@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sumon <sumon@student.42.fr>                +#+  +:+       +#+         #
+#    By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/15 08:14:24 by msumon            #+#    #+#              #
-#    Updated: 2023/09/20 06:31:10 by sumon            ###   ########.fr        #
+#    Updated: 2023/11/29 08:50:54 by msumon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,3 +42,4 @@ fclean:			clean
 re:				fclean $(NAME)
 
 .PHONY:			all clean fclean re
+.SILENT:

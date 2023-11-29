@@ -6,11 +6,11 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 11:11:55 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/27 08:54:18 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/29 08:50:18 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../include/so_long.h"
 
 void	bonus_draw_text(t_data *data)
 {

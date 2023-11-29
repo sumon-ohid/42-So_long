@@ -3,38 +3,37 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: msumon <msumon@student.42.fr>              +#+  +:+       +#+         #
+#    By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/10/02 09:03:46 by msumon            #+#    #+#              #
-#    Updated: 2023/10/06 08:39:02 by msumon           ###   ########.fr        #
+#    Created: 2023/09/15 08:14:24 by msumon            #+#    #+#              #
+#    Updated: 2023/11/29 08:51:02 by msumon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = 	ft_print_char.c ft_print_digit.c ft_print_digit_cap.c \
-		ft_print_str.c ft_print_pointer.c ft_printf.c
+SRCS 			= get_next_line.c
 
-OBJ = $(SRC:.c=.o)
+OBJS			= $(SRCS:.c=.o)
 
-CC = cc
+CC				= cc
 
-CFLAGS = -Wall -Wextra -Werror
+RM				= rm -f
 
-NAME = libftprintf.a
+CFLAGS			= -Wall -Wextra -Werror
 
-all: $(NAME)
+NAME			= gnl.a
 
-$(NAME): $(OBJ)
-	ar rcs $(NAME) $(OBJ)
+all:			$(NAME)
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+$(NAME):		$(OBJS)
+				ar rcs $(NAME) $(OBJS)
 
 clean:
-	rm -f $(OBJ)
+				$(RM) $(OBJS)
 
-fclean: clean
-	rm -f $(NAME)
+fclean:			clean
+				$(RM) $(NAME)
 
-re: fclean all
+re:				fclean $(NAME)
 
-.PHONY: all clean fclean re
+.PHONY:			all clean fclean re
+.SILENT:

@@ -6,11 +6,11 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 20:41:12 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/27 18:40:17 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/29 08:40:36 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../include/so_long.h"
 
 int	contains_exit(t_data *data)
 {

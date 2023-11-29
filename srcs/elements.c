@@ -6,11 +6,11 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 12:58:35 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/27 16:05:16 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/29 08:40:13 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../include/so_long.h"
 
 void	draw_game(t_data *data)
 {

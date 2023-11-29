@@ -6,16 +6,16 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 23:12:47 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/27 18:20:58 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/29 08:50:01 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "ft_printf/ft_printf.h"
-# include "get_next_line/get_next_line.h"
-# include "libft/libft.h"
+# include "../libft/ft_printf/ft_printf.h"
+# include "../libft/get_next_line/get_next_line.h"
+# include "../libft/libft.h"
 # include <math.h>
 # include <mlx.h>
 # include <stdio.h>
