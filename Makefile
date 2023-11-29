@@ -6,7 +6,7 @@
 #    By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/16 20:34:16 by sumon             #+#    #+#              #
-#    Updated: 2023/11/29 09:02:44 by msumon           ###   ########.fr        #
+#    Updated: 2023/11/29 16:01:57 by msumon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,39 +14,39 @@ SRCS 		= ./srcs/so_long.c ./srcs/draw_game.c ./srcs/elements.c \
 				./srcs/load_map.c ./srcs/key_moves.c ./srcs/so_long_utils.c \
 				./srcs/map_validator.c ./srcs/map_validator1.c ./srcs/map_validator2.c
 BONUS		= ./bonus/show_moves.c
+OBJS		= $(SRCS:.c=.o)
+BONUS_OBJS  = $(BONUS:.c=.o)
 CC			= cc
-CFLAGS		= -g -Wall -Werror -Wextra -lmlx -lX11 -lXext -lm #-Lmlx -lmlx -framework OpenGL -framework AppKit 
+CFLAGS		= -Wall -Werror -Wextra
+LDFLAGS = -lmlx -lX11 -lXext -lm
 NAME		= so_long
 LIBFT		= ./libft/
 GNL			= ./libft/get_next_line/
 FTPRINTF	= ./libft/ft_printf/
-
-# Color codes
 GREEN		= $(shell tput -Txterm setaf 2)
 BLUE		= $(shell tput -Txterm setaf 4)
-PURPLE		= $(shell tput -Txterm setaf 5)
 
 all: libft gnl ftprintf compile
 
 libft:
-	@echo ${Q}${NL}${GREEN}======== libft ========${NC}${Q}
+	@echo ======== libft ========
 	@$(MAKE) -C $(LIBFT) all
 
 gnl:
-	@echo ${Q}${NL}${GREEN}======== get_next_line ========${NC}${Q}
+	@echo ======== get_next_line ========
 	@$(MAKE) -C $(GNL) all
 
 ftprintf:
-	@echo ${Q}${NL}${GREEN}======== ft_printf ========${NC}${Q}
+	@echo ======== ft_printf ========
 	@$(MAKE) -C $(FTPRINTF) all
 
 %.o : %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 
-$(NAME): libft gnl ftprintf
-	@echo ${Q}${NL}${BLUE}======== All Together Compiled! ========${NC}${Q}
-	@$(CC) $(CFLAGS) $(SRCS) $(BONUS) $(LIBFT)libft.a $(GNL)gnl.a $(FTPRINTF)libftprintf.a -o $(NAME)
+$(NAME): $(OBJS) $(BONUS_OBJS)
+	@echo ${GREEN}======== So_long Compiled! ========
+	@$(CC) $(CFLAGS) $(OBJS) $(BONUS_OBJS) $(LIBFT)libft.a $(GNL)gnl.a $(FTPRINTF)libftprintf.a $(LDFLAGS) -o $(NAME)
 
 compile: $(NAME)
 
@@ -54,15 +54,16 @@ clean:
 	@$(MAKE) -C $(LIBFT) clean
 	@$(MAKE) -C $(FTPRINTF) clean
 	@$(MAKE) -C $(GNL) clean
-	@rm -f $(OBJ)
-	@echo ${Q}${NC}${BLUE}======== Cleaned! ========${NC}${Q}
+	@rm -f $(OBJS)
+	@rm -f $(BONUS_OBJS)
+	@echo ======== Cleaned! ========
 		
 fclean: clean
 	@$(MAKE) -C $(LIBFT) fclean
 	@$(MAKE) -C $(FTPRINTF) fclean
 	@$(MAKE) -C $(GNL) fclean
 	@rm -f $(NAME)
-	@echo ${Q}${NC}${BLUE}======== Super Cleaned! ========${NC}${Q}
+	@echo ======== Super Cleaned! ========
 	
 re: fclean all
 
