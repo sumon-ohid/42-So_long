@@ -6,7 +6,7 @@
 #    By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/16 20:34:16 by sumon             #+#    #+#              #
-#    Updated: 2023/11/29 16:01:57 by msumon           ###   ########.fr        #
+#    Updated: 2023/11/30 09:21:53 by msumon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,6 @@ ftprintf:
 
 %.o : %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
-
 
 $(NAME): $(OBJS) $(BONUS_OBJS)
 	@echo ${GREEN}======== So_long Compiled! ========

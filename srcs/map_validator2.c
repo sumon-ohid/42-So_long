@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 16:55:35 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/29 08:40:47 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/30 09:13:24 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	can_collect_all_and_exit(t_data *data, int x, int y, int *coins)
 	{
 		if (data->map[y][x] == 'E')
 		{
+			data->map[y][x] = 'e';
 			data->exitcheck = 1;
 		}
 		return ;
