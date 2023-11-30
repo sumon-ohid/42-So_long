@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 11:19:18 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/29 09:05:49 by msumon           ###   ########.fr       */
+/*   Updated: 2023/11/30 16:38:53 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,21 @@ void	initialize_mlx(t_data *data)
 
 	win_height = data->map_height * CELL_SIZE;
 	win_width = data->map_width * CELL_SIZE;
-	data->mlx_win = mlx_new_window(data->mlx, win_width, win_height, "So_long");
-	if (!data->mlx_win)
+	if (win_height <= 1080 && win_width <= 1920)
 	{
-		print_error_and_exit("Failed to create window");
+		data->mlx_win = mlx_new_window(data->mlx, win_width, win_height,
+				"So_long");
+		if (!data->mlx_win)
+		{
+			print_error_and_exit("Failed to create window");
+		}
+	}
+	else
+	{
+		mlx_destroy_display(data->mlx);
+		free(data->mlx);
+		free_map(data->map);
+		print_error_and_exit("Map is bigger than Screen size.");
 	}
 }
 
@@ -60,22 +71,34 @@ void	game_start(t_data *data)
 	}
 }
 
+void	value_assign(t_data *data)
+{
+	data->moves = 0;
+	data->wall_path = "./files/wall.xpm";
+	data->bg_path = "./files/bg1.xpm";
+	data->coin_path = "./files/coin.xpm";
+	data->player_path = "./files/mushroom.xpm";
+	data->exit_path = "./files/exit.xpm";
+	data->map_height = map_height(data->map_path);
+	data->map_width = map_width(data->map_path);
+}
+
 int	main(int argc, char **argv)
 {
-	t_data	data;
+	t_data		data;
+	size_t		map_name_length;
+	const char	*ber_ext = ".ber";
 
 	if (argc != 2)
 		print_error_and_exit("Invalid Argument");
-	data.moves = 0;
+	map_name_length = ft_strlen(argv[1]);
+	if (map_name_length < 4 || ft_strncmp(argv[1] + map_name_length - 4,
+			ber_ext, 4) != 0)
+		print_error_and_exit("Map name must end with '.ber'");
 	data.map_path = argv[1];
-	data.wall_path = "./files/wall.xpm";
-	data.bg_path = "./files/bg1.xpm";
-	data.coin_path = "./files/coin.xpm";
-	data.player_path = "./files/mushroom.xpm";
-	data.exit_path = "./files/exit.xpm";
-	data.map_height = map_height(data.map_path);
-	data.map_width = map_width(data.map_path);
+	value_assign(&data);
 	data.map = load_map(data.map_path);
+	printf("%s\n", data.map_path);
 	if (!(data.map))
 	{
 		free_map(data.map);
