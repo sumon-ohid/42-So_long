@@ -6,7 +6,7 @@
 #    By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/16 20:34:16 by sumon             #+#    #+#              #
-#    Updated: 2023/11/30 09:21:53 by msumon           ###   ########.fr        #
+#    Updated: 2023/11/30 09:27:15 by msumon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ OBJS		= $(SRCS:.c=.o)
 BONUS_OBJS  = $(BONUS:.c=.o)
 CC			= cc
 CFLAGS		= -Wall -Werror -Wextra
-LDFLAGS = -lmlx -lX11 -lXext -lm
+LDFLAGS 	= -lmlx -lX11 -lXext -lm
 NAME		= so_long
 LIBFT		= ./libft/
 GNL			= ./libft/get_next_line/
@@ -44,8 +44,8 @@ ftprintf:
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS) $(BONUS_OBJS)
-	@echo ${GREEN}======== So_long Compiled! ========
 	@$(CC) $(CFLAGS) $(OBJS) $(BONUS_OBJS) $(LIBFT)libft.a $(GNL)gnl.a $(FTPRINTF)libftprintf.a $(LDFLAGS) -o $(NAME)
+	@echo ${GREEN}======== So_long Compiled! ========
 
 compile: $(NAME)
 
