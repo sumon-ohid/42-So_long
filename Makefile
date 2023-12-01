@@ -26,7 +26,7 @@ FTPRINTF	= ./libft/ft_printf/
 GREEN		= $(shell tput -Txterm setaf 2)
 BLUE		= $(shell tput -Txterm setaf 4)
 
-all: libft gnl ftprintf compile
+all: libft gnl ftprintf $(NAME)
 
 libft:
 	@echo ======== libft ========
@@ -46,8 +46,6 @@ ftprintf:
 $(NAME): $(OBJS) $(BONUS_OBJS)
 	@$(CC) $(CFLAGS) $(OBJS) $(BONUS_OBJS) $(LIBFT)libft.a $(GNL)gnl.a $(FTPRINTF)libftprintf.a $(LDFLAGS) -o $(NAME)
 	@echo ${GREEN}======== So_long Compiled! ========
-
-compile: $(NAME)
 
 clean:
 	@$(MAKE) -C $(LIBFT) clean

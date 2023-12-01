@@ -74,11 +74,11 @@ void	game_start(t_data *data)
 void	value_assign(t_data *data)
 {
 	data->moves = 0;
-	data->wall_path = "./files/wall.xpm";
-	data->bg_path = "./files/bg1.xpm";
-	data->coin_path = "./files/coin.xpm";
-	data->player_path = "./files/mushroom.xpm";
-	data->exit_path = "./files/exit.xpm";
+	data->wall_path = "./textures/wall.xpm";
+	data->bg_path = "./textures/bg1.xpm";
+	data->coin_path = "./textures/coin.xpm";
+	data->player_path = "./textures/mushroom.xpm";
+	data->exit_path = "./textures/exit.xpm";
 	data->map_height = map_height(data->map_path);
 	data->map_width = map_width(data->map_path);
 }
