@@ -27,3 +27,5 @@ Check here : [Minilibx Library](https://github.com/42Paris/minilibx-linux)
 ![Game View](https://github.com/sumon-ohid/42-So_long/assets/117649754/a812b08f-a510-4e12-be21-6acb97983beb)
 
 ![Another Game View](https://github.com/sumon-ohid/42-So_long/assets/117649754/88382298-8740-4c5c-b59a-6629add58419)
+
+![Another Game View](https://github.com/sumon-ohid/42-So_long/assets/117649754/4d26dd01-919a-4e82-a2a5-44411bc96006)
