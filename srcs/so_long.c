@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 11:19:18 by msumon            #+#    #+#             */
-/*   Updated: 2023/11/30 16:38:53 by msumon           ###   ########.fr       */
+/*   Updated: 2024/01/03 15:29:14 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,6 @@ int	main(int argc, char **argv)
 	data.map_path = argv[1];
 	value_assign(&data);
 	data.map = load_map(data.map_path);
-	printf("%s\n", data.map_path);
 	if (!(data.map))
 	{
 		free_map(data.map);
